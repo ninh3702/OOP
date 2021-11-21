@@ -1,0 +1,1933 @@
+BỘ GIÁO DỤC VÀ ĐÀO TẠO
+TRƯỜNG ĐẠI HỌC GTVT
+PHÂN HIỆU TẠI TP. HỒ CHÍ MINH
+ĐOÀN: CÔNG NGHỆ THÔNG TIN
+ 
+
+BÁO CÁO BÀI TẬP LỚN
+
+MÔN: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG
+
+ĐỀ TÀI: QUẢN LÝ SINH VIÊN
+                      Giảng viên hướng dẫn: Trần Thị Dung
+Lớp: CQ.61.CNTT
+Khóa: 61
+
+NHÓM: 19
+                      Sinh viên:	MSSV:
+-	Nguyễn Đăng An Ninh				6151071081		         	
+-	Phan Thị Kim Nhung				6151071018				
+-	Kiều Thị Mộng Hiền				6151071046                                                                                       
+
+
+LỜI CẢM ƠN
+
+Đầu tiên, em xin gửi lời cảm ơn chân thành đến Trường Đại học Giao thông Vận tải – Phân hiệu tại thành phố Hồ Chí Minh đã đưa bộ môn Công nghệ thông tin vào giảng dạy. Đặc biệt, em xin gửi lời cảm ơn đến giảng viên bộ môn – Cô Trần Thị Dung đã dạy dỗ, truyền đạt cho chúng em những kiến thức quý báu trong suốt thời gian học tập vừa qua và chúng em đã có thêm cho mình rất nhiều kiến thức để bổ sung thêm vào hành trang tri thức của mình.
+
+Trong chương trình học môn Lập trình hướng đối tượng thì chúng em cũng gặp rất nhiều khó khăn trong học tập bởi vì hai môn này đối với chứng em thì cũng không phải gọi là dễ. Nhưng nhờ sự giảng dạy, giúp đỡ tận tình của cô mà chúng em đã biết được thêm rất nhiều kiến thức bổ ích. Và cô đã cùng góp ý, chỉ dẫn để xây dựng đề tài cho bài tập lớn là “Quản lý sinh viên”.
+
+Sau một thời gian nỗ lực để thực hiện thì đề tài cũng đã hoàn thành. Nhưng không sao tránh khỏi những sai sót do chúng em cũng còn chưa có nhiều kinh nghiệm thực tế cũng như kiến thức còn hạn hẹp. Chúng em kính mong nhận được sự góp ý và nhận xét chân thành từ Cô, để chứng em có thể hoàn thiện và hoàn thành tốt hơn đề tài bài tập lớn của mình. Và cũng như là để chúng em có thể rút ra được những kinh nghiệm để cho những đề tài sau của mình được tốt hơn.
+
+Lời sau cùng thì chúng em chúc Cô luôn có một sức khỏe tốt và đạt được nhiều thành công hơn nữa trên con đường giảng dạy của mình.
+
+
+
+
+
+
+Tp. Hồ Chí Minh, ngày       tháng       năm 2020
+Sinh viên thực hiện
+
+
+ 
+
+
+
+
+Contents
+PHẦN I: CHƯƠNG TRÌNH	6
+Chương 1: Tổng quan về đề tài	6
+I. Lí do chọn đề tài	6
+II. Mục tiêu chọ đề tài	6
+III. Phạm vi nghiên cứu	6
+Chương 2: Tính chất hướng đối tượng	6
+I. Lớp( Class)	6
+1.Khái niệm lớp đối tượng	6
+2. Các thành phần của lớp	7
+3. Phạm vi truy nhập lớp	9
+4. Hàm khởi tạo và huỷ bỏ	11
+5. Con trỏ đối tượng và mảng đối tượng	12
+II.Tính kế thừa và đa hình	14
+1. Khái niệm kế thừa	14
+2. Hàm khởi tạo và huỷ bỏ trong kế thừa	15
+3. Truy nhập tới các thành phần trong kế thừa lớp	16
+4. Đa kế thừa	18
+5. Lớp cơ sở trừu tượng	19
+6. Đa hình	20
+III. Vector trong C++	20
+1. Cú pháp khai báo và các hàm cơ bản	21
+2. Truy xuất phần tử của vector	21
+3. Lấy phần tử đầu và cuối của vector	22
+4. Thêm phần tử vào cuối vector	22
+5. Loại bỏ phần tử cuối vector	22
+6. Số phần tử của vector	23
+7.  Kích thức của vector	23
+8.  Thay đổi số phần tử của vector	23
+9. Xóa hết phần tử của vector	24
+Chương 3: Tính chất cấu trúc dữ liệu và giải thuật	24
+I. Các thuật toán sắp xếp	24
+1. Sắp xếp nổi bọt	24
+2. Sắp xếp chọn (Selection Sort)	25
+3. Sắp xếp chèn (Insertion Sort)	26
+4.  Sắp xếp trộn (Merge Sort)	27
+5. Sắp xếp nhanh (Quick Sort)	29
+II. Các thuật toán tìm kiếm	30
+1. Tìm kiếm tuyến tính	30
+2. Tìm kiếm nhị phân	31
+3 Tìm kiếm nội suy	33
+Chương 4: Đồ họa	34
+1. Windows.h là gì?	34
+2. Một số hàm trong Windows.h để vọc vạch với Console	34
+3. Thay đổi màu chữ	41
+Di chuyển con trỏ đến vị trí (x; y)	42
+4. Thay đổi Console Title	43
+5. Ẩn/Hiện con trỏ	44
+6. Vô hiệu hóa Select (bôi đen text)	45
+Chương 5:Cách cài đặt chương trình ứng dụng và hướng dẫn sử dụng	45
+I.  Cách cài đặt chương trình ứng dụng	45
+II.  Hướng dẫn sử dụng	46
+PHẦN II: DỊCH TÀI LIỆU	52
+Chương 16: Classes	52
+16.2 Cơ bản về lớp	52
+16.2.3 Kiểm soát truy cập	52
+16.2.4 Lớp và cấu trúc	53
+16.2.7 Bộ khởi tạo trong lớp	53
+16.2.11 Quyền truy cập thành viên	54
+16.2.12 [tĩnh] Thành viên	54
+16.2.13 Các loại thành viên	54
+16.3.3 Người vận hành quá tải	55
+Chương 17: Construction, Cleanup, Copy, and Move	55
+17.2 Cấu tạo và cấu trúc phá hủy	55
+17.3.2 Khởi tạo bằng cách sử dụng hàm tạo	57
+17.3.3 Trình tạo mặc định	58
+17.4.1 Khởi tạo thành viên	58
+17.4.4 Bộ khởi tạo trong lớp	58
+17.4.5 Khởi tạo thành viên tĩnh	59
+17.5.1 Sao chép	59
+17.5.2 Di chuyển	59
+17.6 Tạo hoạt động mặc định	59
+Chương 18: Nạp Chồng Toán Tử	60
+18.1 Giới thiệu	60
+18.2 Các chức năng của nhà điều hành Các hàm xác định ý nghĩa cho các toán tử sau (§10.3) có thể được khai báo:	60
+18.3 Một loại số phức          - Toán tử thành viên và không phải thành viên - Số học chế độ hỗn hợp - Chuyển đổi - Chuyển đổi toán hạng - Hằng - Hàm Accessor - Hàm trợ giúp	61
+Chương 19: Toán Tử Đặc Biệt	62
+19.1 Giới thiệu	62
+19.2 Các toán tử đặc biệt	62
+19.3 Một lớp chuỗi	63
+19.4 Hàm bạn	64
+Chương 20: Derived Classes	65
+20.2 Các lớp có nguồn gốc	65
+20.3 Phân cấp lớp	66
+20.4 Các lớp trừu tượng	67
+20.5 Kiểm soát truy cập	67
+20.6.1 Con trỏ đến các thành viên hàm	68
+Chương 21: CẤU TRÚC PHÂN CẤP LỚP	69
+21.2 Thiết kế cấu trúc phân cấp lớp	69
+21.3 Thừa kế nhiều	70
+PHẦN III: ĐÁNH GIÁ CÁC THÀNH VIÊN TRONG NHÓM	73
+
+ 
+PHẦN I: CHƯƠNG TRÌNH
+Chương 1: Tổng quan về đề tài
+I. Lí do chọn đề tài
+Trong xã hội ngày càng phát triển hiện nay, ứng dụng công nghệ vào đời sống không còn gì là quá xa lạ đối với mỗi chúng ta. Với sự phát triển nhanh một cách không ngừng của công nghệ thông tin đã giúp giải quyết các công việc học tập, nguyên cứu, quản lý thông tin,… Một cách dễ dàng và tiện lợi. Thấy được tiềm năng đó các quốc gia, doanh nghiệp, trường học, các cá nhân, … đã ứng dụng nó vào thực tiển cuộc sống để giải quyết công việc, học tập, giải trí với những chiếc điện thoại thông minh nhỏ gọn. Trong những năm gần đây nhu cầu về các phần mềm, ứng dụng học tập, giải trí càng nhiều hơn do nhu cầu sử dụng điện thoại các thiết bị gọn nhẹ ngày càng cao và thuận tiện cho người sử dụng. Nhằm giúp đỡ người sử dụng cụ thể là các thầy cô tiện lợi trong việc rà soát, nắm thông tin của từng sinh viên mọi lúc mọi nơi mà không phụ thuộc quá nhiều vào sổ sách cồng kềnh. Ứng dụng giúp mọi người sử dụng một cách dễ dàng, giao diện thân thiện với người sử dụng.
+
+II. Mục tiêu chọ đề tài
+	Xây dựng chương trình quản lý sinh viên bằng ngôn ngữ lập trình C++.
+Thay thế việc ghi chép trên số sách bằng cách đăng nhập, xuất và lưu trữ thông tin một cách nhanh chóng, chính xác và an toàn trên máy tính. Đáp ứng kịp thời thông tin khi người dùng cần đến. Tránh sai sót và giảm thiểu về thời gian công việc nhằm nâng cao hiệu quả công việc quản lý.
+
+III. Phạm vi nghiên cứu
+Phân tích thiết kế hệ thống quản lý sinh viên bằng ngôn ngữ lập trình C++.
+
+IV. Mô tả bài toán thực tế
+Trong thời gian sinh viên học, bộ phân quản lý sinh viên sẽ tiếp nhận và lưu trữ toàn bộ thông tin về sinh viên, bao gồm những thuộc tính: mã số sinh viên,  tên sinh viên, khóa, lớp,… nhưng cũng có những thuộc tính riêng như số tín chỉ. Ngoài ra còn có những phương thức: nhập xuất sinh viên, và học phí. 
+
+
+Chương 2: Tính chất hướng đối tượng
+I. Lớp( Class)
+1.Khái niệm lớp đối tượng 
+C++ coi lớp là sự trừu tượng hóa các đối tượng, là một khuôn mẫu để biểu diễn các đối tượng thông qua các thuộc tính và các hành động đặc trưng của đối tượng.
+ 1.1 Định nghĩa lớp đối tượng
+ Để định nghĩa một lớp trong C++, ta dùng từ khóa class với cú pháp:
+ Class <Tên lớp> { };
+ Trong đó:
+ • class: là tên từ khóa bắt buộc để định nghĩa một lớp đối tượng trong C++. 
+• Tên lớp: do người dùng tự định nghĩa. Tên lớp có tính chất như tên kiểu dữ liệu để sử dụng sau này. Cách đặt tên lớp phải tuân thủ theo quy tắc đặt tên biến trong C++.
+ 
+ Lưu ý:
+ • Từ khóa class là bắt buộc để định nghĩa một lớp đối tượng trong C++. Hơn nữa, C++ có phân biệt chữ hoa chữ thường trong khai báo cho nên chữ class phải được viết bằng chữ thường.
+• Bắt buộc phải có dấu chấm phẩy “;” ở cuối định nghĩa lớp vì C++ coi định nghĩa một lớp như định nghĩa một kiểu dữ liệu, cho nên phải có dấu chấm phẩy cuối định nghĩa (tương tự định nghĩa kiểu dữ liệu kiểu cấu trúc). 
+• Để phân biệt với tên biến thông thường, ta nên (nhưng không bắt buộc) đặt tên lớp bắt đầu bằng một chữ in hoa và các tên biến bắt đầu bằng một chữ in thường
+1.2. Sử dụng lớp đối tượng
+ Lớp đối tượng được sử dụng khi ta khai báo các thể hiện của lớp đó. Một thể hiện của một lớp chính là một đối tượng cụ thể của lớp đó. Việc khai báo một thể hiện của một lớp được thực hiện như cú pháp khai báo một biến có kiểu lớp:
+<Tên lớp> <Tên biến lớp> ;
+ Trong đó:
+• Tên lớp: là tên lớp đối tượng đã được định nghĩa trước khi khai báo biến.
+• Tên biến lớp: là tên đối tượng cụ thể. Tên biến lớp sẽ được sử dụng như các biến thông thường trong C++, ngoại trừ việc nó có kiểu lớp đối tượng. 
+Lưu ý: 
+• Khi khai báo biến lớp, ta không dùng lại từ khóa class nữa. Từ khóa class chỉ được sử dụng khi định nghĩa lớp mà không dùng khi khai báo biến lớp. 
+
+2. Các thành phần của lớp 
+Việc khai báo các thành phần của lớp có dạng như sau:
+Class <Tên lớp>{ 
+private:
+<Khai báo các thành phần riêng> 
+protected:
+<Khai báo các thành phần được bảo về> 
+public:
+	<Khai báo các thành phần công cộng>
+}; 
+Trong đó:
+• private: là từ khóa chỉ tính chất của C++ để chỉ ra rằng các thành phần được khai báo trong phạm vi từ khóa này là riêng tư đối với lớp đối tượng. Các đối tượng của các lớp khác không truy nhập được các thành phần này. 
+• protected: các thành phần được khai báo trong phạm vi từ khóa này đều được bảo vệ. 
+• public: các thành phần công cộng. Các đối tượng của các lớp khác đều có thể truy nhập đến các thành phần công cộng của một đối tượng bất kì. 
+Các thành phần của lớp được chia làm hai loại: 
+• Các thành phần chỉ dữ liệu của lớp, được gọi là thuộc tính của lớp 
+• Các thành phần chỉ hành động của lớp, được gọi là phương thức của lớp. 
+2.1. Thuộc tính của lớp
+ Khai báo thuộc tính 
+Thuộc tính của lớp là thành phần chứa dữ liệu, đặc trưng cho các tính chất của lớp. Thuộc tính của lớp được khai báo theo cú pháp sau:
+ <Kiểu dữ liệu> <Tên thuộc tính>;
+Trong đó: 
+• Kiểu dữ liệu: có thể là các kiểu dữ liệu cơ bản của C++, cũng có thể là các kiểu dữ liệu phức tạp do người dùng tự định nghĩa như struct, hoặc kiểu là một lớp đã được định nghĩa trước đó. 
+• Tên thuộc tính: là tên thuộc tính của lớp, có tính chất như một biến thông thường. Tên thuộc tính phải tuân theo quy tắc đặt tên biến của C++.
+Lưu ý: 
+• Không được khởi tạo giá trị ban đầu cho các thuộc tính ngay trong lớp. Vì các thuộc tính chỉ có giá trị khi nó gắn với một đối tượng cụ thể, là một thể hiện (biến) của lớp. 
+• Khả năng truy nhập thuộc tính của lớp là phụ thuộc vào thuộc tính ấy được khai báo trong phạm vi của từ khóa nào: private, protected hay public. 
+• Thông thường, do yêu cầu đóng gói dữ liệu của hướng đối tượng, ta nên khai báo các thuộc tính có tính chất riêng tư (ptivate). Nếu muốn các đối tượng khác truy nhập được vào các thuộc tính này, ta xây dựng các hàm public truy nhập (get / set) đến thuộc tính đó. 
+Sử dụng thuộc tính 
+Thuộc tính có thể được sử dụng cho các chương trình nằm ngoài lớp thông qua tên biến lớp hoặc sử dụng ngay trong lớp bởi các phương thức của lớp. 
+• Nếu thuộc tính được dùng bên ngoài phạm vi lớp, cú pháp phải thông qua tên biến lớp (cách này chỉ sử dụng được với các biến có tính chất public): 
+<Tên biến lớp>.<tên thuộc tính>; 
+• Nếu thuộc tính được dùng bên trong lớp, cú pháp đơn giản hơn: 
+<Tên thuộc tính>; 
+Lưu ý: 
+• Khi dùng thuộc tính bên trong các phương thức của lớp, mà tên thuộc tính lại bị trùng với tên biến toàn cục (tự do) của chương trình, ta phải chỉ rõ việc dùng tên thuộc tính của lớp (mà không phải tên biến toàn cục) bằng cách dùng chỉ thị phạm vi lớp “::” với cú pháp:
+ 	<Tên lớp>::<Tên thuộc tính>; 
+2.2 Phương thức của lớp 
+Khai báo khuôn mẫu phương thức
+Một phương thức là một thao tác thực hiện một số hành động đặc trưng của lớp đối tượng. Phương thức được khai báo tương tự như các hàm trong C++:
+<Kiểu trả về> <Tên phương thức>([Các tham số]); 
+Trong đó: 
+• Kiểu trả về: là kiểu dữ liệu trả về của phương thức. Kiểu có thể là các kiểu dữ liệu cơ bản của C++, cũng có thể là kiểu do người dùng định nghĩa, hoặc kiểu lớp đã được định nghĩa.
+• Tên phương thức: do người dùng tự đặt tên, tuân theo quy tắc đặt tên biến của C++. 
+• Các tham số: Các tham số đầu vào của phương thức, được biểu diễn bằng kiểu dữ liệu tương ứng. Các tham số được phân cách bởi dấu phẩy “,”. Các tham số là tùy chọn (Phần trong dấu ngoặc vuông “[]” là tùy chọn).  
+Lưu ý: 
+• Khả năng truy nhập phương thức từ bên ngoài là phụ thuộc vào phương thức được khai báo trong phạm vi của từ khóa nào: private, protected hay public.
+Định nghĩa phương thức 
+Trong C++, việc cài đặt chi tiết nội dung của phương thức có thể tiến hành ngay trong phạm vi lớp hoặc bên ngoài phạm vi định nghĩa lớp. Cú pháp chỉ khác nhau ở dòng khai báo tên phương thức. 
+• Nếu cài đặt phương thức ngay trong phạm vi định nghĩa lớp, cú pháp là:
+ 	<Kiểu trả về> <Tên phương thức >([<Các tham số>]){
+ … // Cài đặt chi tiết 
+} 
+• Nếu cài đặt phương thức bên ngoài phạm vi định nghĩa lớp, ta phải dùng chỉ thị phạm vi “::” để chỉ ra rằng đấy là một phương thức của lớp mà không phải là một hàm tự do trong chương trình:
+ 	<Kiểu trả về> <Tên lớp>::<Tên phương thức>([<Các tham số>]){ 
+… // Cài đặt chi tiết 	
+} 
+Lưu ý: 
+• Nếu phương thức được cài đặt ngay trong lớp thì các tham số phải tường minh, nghĩa là mỗi tham số phải được biểu diễn bằng một cặp như khi cài đặt chi tiết một hàm tự do trong chương trình. 
+• Thông thường, chỉ các phương thức ngắn (trên một dòng) là nên cài đặt ngay trong lớp. Còn lại nên cài đặt các phương thức bên ngoài lớp để chương trình được sáng sủa, rõ ràng và dễ theo dõi. 
+
+Sử dụng phương thức 
+Cũng tương tự như các thuộc tính của lớp, các phương thức cũng có thể được sử dụng bên ngoài lớp thông qua tên biến lớp, hoặc có thể được dùng ngay trong lớp bởi các phương thức khác của lớp định nghĩa nó. 
+• Nếu phương thức được dùng bên ngoài phạm vi lớp, cú pháp phải thông qua tên biến lớp (cách này chỉ sử dụng được với các phương thức có tính chất public): 
+<Tên biến lớp >.<Tên phương thức>([<Các đối số>]); 
+• Nếu thuộc tính được dùng bên trong lớp, cú pháp đơn giản hơn: 
+<Tên phương thức>([<Các đối số>]); 
+Lưu ý: 
+• Khi dùng phương thức bên trong các phương thức khác của lớp, mà phương thức lại bị trùng với các phương thức tự do của chương trình, ta phải chỉ rõ việc dùng phương thức của lớp (mà không phải dùng phương thức tự do) bằng cách dùng chỉ thị phạm vi lớp “::” với cú pháp: 
+<Tên lớp>::<Tên phương thức>([<Các đối số>]);
+
+3. Phạm vi truy nhập lớp 
+3.1 Phạm vi truy nhập lớp 
+ Trong C++, có một số khái niệm về phạm vi, xếp từ bé đến lớn như sau: 
+• Phạm vi khối lệnh: Trong phạm vi giữa hai dấu giới hạn “{}” của một khối lệnh. Ví dụ các lệnh trong khối lệnh lặp while(){} sẽ có cùng phạm vi khối lệnh. 
+• Phạm vi hàm: Các lệnh trong cùng một hàm có cùng mức phạm vi hàm. 
+• Phạm vi lớp: Các thành phần của cùng một lớp có cùng phạm vi lớp với nhau: các thuộc tính và các phương thức của cùng một lớp. 
+• Phạm vi chương trình (còn gọi là phạm vi tệp): Các lớp, các hàm, các biến được khai báo và định nghĩa trong cùng một tệp chương trình thì có cùng phạm vi chương trình. 
+Trong phạm vi truy nhập lớp, ta chỉ quan tâm đến hai phạm vi lớn nhất, đó là phạm vi lớp và phạm vi chương trình. Trong C++, phạm vi truy nhập lớp được quy định bởi các từ khóa về thuộc tính truy nhập: 
+• private: Các thành phần của lớp có thuộc tính private thì chỉ có thể được truy nhập trong phạm vi lớp. 
+• protected: Trong cùng một lớp, thuộc tính protected cũng có ảnh hưởng tương tự như thuộc tính private: các thành phần lớp có thuộc tính protected chỉ có thể được truy nhập trong phạm vi lớp. Ngoài ra nó còn có thể được truy nhập trong các lớp con khi có kế thừa. 
+• public: các thành phần lớp có thuộc tính public thì có thể được truy nhập trong phạm vi chương trình, có nghĩa là nó có thể được truy nhập trong các hàm tự do, các phương thức bên trong các lớp khác…
+Tuy nhiên, C++ cho phép một cách đặc biệt để truy nhập đến các thành phần private và protected của một lớp bằng khái niệm hàm bạn và lớp bạn của một lớp: trong các hàm bạn và lớp bạn của một lớp, có thể truy nhập đến các thành phần private và protected như bên trong phạm vi lớp đó. 
+3.2 Hàm bạn
+Có hai kiểu hàm bạn cơ bản trong C++: 
+• Một hàm tự do là hàm bạn của một lớp 
+• Một hàm thành phần (phương thức) của một lớp là bạn của một lớp khác 
+Ngoài ra còn có một số kiểu hàm bạn mở rộng từ hai kiểu này: 
+• Một hàm là bạn của nhiều lớp 
+• Tất cả các hàm của một lớp là bạn của lớp khác (lớp bạn) 
+Hàm tự do bạn của một lớp 
+Một hàm bạn của một lớp được khai báo bằng từ khóa friend khi khai báo khuôn mẫu hàm trong lớp tương ứng. 
+Class<Tên lớp>{ 
+… 	// Khai báo các thành phần lớp như thông thường 	
+// Khai báo hàm bạn 
+friend<Kiểu trả về> <Tên hàm bạn> ([<Các tham số>]); 
+}; 
+Khi đó, định nghĩa chi tiết hàm bạn được thực hiện như định nghĩa một hàm tự do thông thường: 
+<Kiểu trả về> <Tên hàm bạn>([<Các tham số>]){ 
+… 	// Có thể truy nhập trực tiếp các thành phần private 
+// của lớp đã khai báo } 
+Lưu ý: 
+• Mặc dù hàm bạn được khai báo khuôn mẫu hàm trong phạm vi lớp, nhưng hàm bạn tự do lại không phải là một phương thức của lớp. Nó là hàm tự do, việc định nghĩa và sử dụng hàm này hoàn toàn tương tự như các hàm tự do khác. 
+• Việc khai báo khuôn mẫu hàm bạn trong phạm vi lớp ở vị trí nào cũng được: hàm bạn không bị ảnh hưởng bởi các từ khóa private, protected hay public trong lớp. 
+• Trong hàm bạn, có thể truy nhập trực tiếp đến các thành phần private và protected của đối tượng có kiểu lớp mà nó làm bạn (truy nhập thông qua đối tượng cụ thể).
+3.3. Lớp bạn 
+Khi tất cảc các phương thức của một lớp là bạn của một lớp khác, thì lớp của các phương thức đó cũng trở thành lớp bạn của lớp kia. Muốn khai báo một lớp B là lớp bạn của lớp A, ta khai báo theo tuần tự sau: 
+• Khai báo khuôn mẫu lớp B: 
+class B; 
+• Định nghĩa lớp A, với khai báo B là lớp bạn: 
+class A{ 
+… // Khai báo các thành phần của lớp A 	
+// Khai báo lớp bạn B 
+friend class B; 
+}; 
+• Định nghĩa chi tiết lớp B: 
+class B{
+… // Khai báo các thành phần của lớp B 
+}; 
+Lưu ý: 
+• Trong trường hợp này, lớp B là lớp bạn của lớp A nhưng không có nghĩa là lớp A cũng là bạn của lớp B: tất cả các phương thức của lớp B có thể truy nhập các thành phần private của lớp A (thông qua các đối tượng có kiểu lớp A) nhưng các phương thức của lớp A lại không thể truy nhập đến các thành phần private của lớp B. 
+• Muốn các phương thức của lớp A cũng truy nhập được đến các thành phần private của lớp B, thì phải khai báo thêm là lớp A cũng là lớp bạn của lớp B. 
+
+4. Hàm khởi tạo và huỷ bỏ 
+4.1. Hàm khởi tạo
+Hàm khởi tạo được gọi mỗi khi khai báo một đối tượng của lớp. Ngay cả khi không được khai báo tường minh, C++ cũng gọi hàm khởi tạo ngầm định khi đối tượng được khai báo.
+Khai báo hàm khởi tạo 
+Hàm khởi tạo của một lớp được khai báo tường minh theo cú pháp sau: 
+Class<Tên lớp> { 
+public: 
+<Tên lớp>([<Các tham số>]); // Khai báo hàm khởi tạo 
+};
+Lưu ý: 
+• Hàm khởi tạo phải có tên trùng với tên của lớp 
+• Hàm khởi tạo không có giá trị trả về 
+• Hàm khởi tạo có tính chất public 
+• Có thể có nhiều hàm khởi tạo của cùng một lớp 
+Sử dụng hàm khởi tạo của lớp 
+Hàm khởi tạo được sử dụng khi khai báo biến lớp. Khi đó, ta có thể vừa khai báo, vừa khởi tạo giá trị các thuộc tính của đối tượng lớp theo cú pháp sau: 
+<Tên lớp> <Tên đối tượng>([<Các đối số khởi tạo>]); 
+Trong đó: 
+• Tên lớp: là tên kiểu lớp đã được định nghĩa 
+• Tên đối tượng: là tên biến có kiểu lớp, tuân thủ theo quy tắc đặt tên biến của C++ • Các đối số khởi tạo: Là các đối số tương ứng với hàm khởi tạo của lớp tương ứng. Tương tự như việc truyền đối số khi dùng các lời gọi hàm thông thường.
+ Lưu ý: 
+• Khi sử dụng hàm khởi tạo, phải truyền đúng số lượng và đúng kiểu của các tham số của các hàm khởi tạo đã được định nghĩa của lớp. 
+• Khi một lớp đã có ít nhất một hàm khởi tạo tường minh, thì không được sử dụng hàm khởi tạo ngầm định của C++. Do đó, khi đã khai báo ít nhất một hàm khởi tạo, nếu muốn khai báo biến mà không cần tham số, lớp tương ứng phải có ít nhất một hàm khởi tạo không có tham số. 
+• Trong trường hợp dùng hàm khởi tạo không có tham số, ta không cần phải sử dụng cặp dấu ngoặc đơn “()” sau tên biến đối tượng. Việc khai báo trở thành cách khai báo thông thường. 
+4.2. Hàm hủy bỏ 
+Hàm hủy bỏ được tự động gọi đến khi mà đối tượng được giải phóng khỏi bộ nhớ. Nhiệm vụ của hàm hủy bỏ là dọn dẹp bộ nhớ trước khi đối tượng bị giải phóng. Cú pháp khai báo hàm hủy bỏ như sau: 
+class<Tên lớp> { 
+public: 
+~<Tên lớp>([<Các tham số>]); // Khai báo hàm khởi tạo 
+};
+Lưu ý: 
+• Hàm hủy bỏ phải có tên bắt đầu bằng dấu “~”, theo sau là tên của lớp tương ứng. • Hàm hủy bỏ không có giá trị trả về.
+• Hàm hủy bỏ phải có tính chất public 
+• Mỗi lớp chỉ có nhiều nhất một hàm hủy bỏ. Trong trường hợp không khai báo tường minh hàm hủy bỏ, C++ sẽ sử dụng hàm hủy bỏ ngầm định. 
+• Nói chung, khi có ít nhất một trong các thuộc tính của lớp là con trỏ, thì nên dùng hàm hủy bỏ tường minh để giải phóng triệt để các vùng nhớ của các thuộc tính, trước khi đối tượng bị giải phóng khỏi bộ nhớ.
+
+5. Con trỏ đối tượng và mảng đối tượng
+5.1. Con trỏ đối tượng 
+Con trỏ đối tượng là con trỏ trỏ đến địa chỉ của một đối tượng có kiểu lớp. Các thao tác liên quan đến con trỏ đối tượng bao gồm: 
+• Khai báo con trỏ đối tượng 
+• Cấp phát bộ nhớ cho con trỏ đối tượng 
+• Sử dụng con trỏ đối tượng 
+• Giải phóng bộ nhớ cho con trỏ đối tượng 
+Khai báo con trỏ đối tượng 
+Con trỏ đối tượng được khai báo tương tự như khai báo các con trỏ có kiểu thông thường: 
+<Tên lớp> *<Tên con trỏ đối tượng>; 
+Cấp phát bộ nhớ cho con trỏ đối tượng 
+Con trỏ đối tượng cũng cần phải cấp phát bộ nhớ hoặc trỏ vào một địa chỉ của một đối tượng lớp xác định trước khi được sử dụng. Cấp phát bộ nhớ cho con trỏ đối tượng cũng bằng thao tác new:
+          <Tên con trỏ đối tượng> =  new <Tên lớp>([<Các đổi số>]);
+Lưu ý: 
+• Các đối số truyền phải tương ứng với ít nhất một trong các hàm khởi tạo của lớp. 
+• Khi sử dụng hàm khởi tạo không có tham số, ta vẫn phải sử dụng cặp ngoặc đơn “()” trong thao tác new. 
+• Khi lớp không có một hàm khởi tạo tường minh nào, sẽ dùng hàm khởi tạo ngầm định của C++ và cú pháp tương tự như sử dụng hàm khởi tạo tường minh không có tham số. 
+• Có thể vừa khai báo, vừa cấp phát bộ nhớ cho con trỏ đối tượng. 
+Sử dụng con trỏ đối tượng
+Con trỏ đối tượng được sử dụng qua các thao tác: 
+• Trỏ đến địa chỉ của một đối tượng cùng lớp 
+• Truy nhập đến các phương thức của lớp 
+Con trỏ đối tượng có thể trỏ đến địa chỉ của một đối tượng có sẵn, cùng lớp theo cú pháp sau:
+ 	<Tên con trỏ đối tượng> =  &<Tên đối tượng có sẵn>; 
+Khi muốn truy nhập đến các thành phần của con trỏ đối tượng, ta dùng cú pháp sau:
+ 	<Tên con trỏ đối tượng> => <Tên thành phần lớp>([<Các đối số>]);
+Lưu ý: 
+• Danh sách các đối số phải tương thích với tên phương thức tương ứng. 
+• Các quy tắc phạm vi truy nhập vẫn áp dụng trong truy nhập các thành phần lớp thông qua con trỏ. 
+Giải phóng bộ nhớ cho con trỏ đối tượng 
+Con trỏ đối tượng cũng được giải phóng thông qua thao tác delete: 
+delete <Tên con trỏ đối tượng> ; 
+Lưu ý: 
+• Thao tác delete chỉ được dùng khi trước đó, con trỏ được cấp phát bộ nhớ qua thao tác new
+Nhưng không được dùng delete khi trước đó, con trỏ chỉ trỏ vào một địa chỉ của đối tượng có sẵn (tĩnh)
+5.2. Mảng các đối tượng 
+Mảng các đối tượng cũng có thể được khai báo và sử dụng như mảng của các biến có kiểu thông thường. 
+Khai báo mảng tĩnh các đối tượng 
+Mảng các đối tượng được khai báo theo cú pháp:
+<Tên lớp> <Tên biến mảng>[<Số lượng đối tượng>];
+Lưu ý: 
+• Có thể khai báo mảng tĩnh các đối tượng mà chưa cần khai báo độ dài mảng, cách này thường dùng khi chưa biết chính xác độ dài mảng
+• Muốn khai báo được mảng tĩnh các đối tượng, lớp tương ứng phải có hàm khởi tạo không có tham số. Vì khi khai báo mảng, tương đương với khai báo một dãy các đối tượng với hàm khởi tạo không có tham số.
+Khai báo mảng động với con trỏ 
+Một mảng các đối tượng cũng có thể được khai báo và cấp phát động thông qua con trỏ đối tượng như sau:
+ 	<Tên lớp> *<Tên biến mảng động>  = new <Tên lớp> [<Độ dài mảng>];
+Sau khi được sử dụng, mảng động các đối tượng cũng cần phải giải phóng bộ nhớ: 
+delete [] <Tên biến mảng động>; 
+Sử dụng mảng đối tượng 
+Khi truy nhập vào các thành phần của một đối tượng có chỉ số xác định trong mảng đã khai báo, ta có thể sử dụng cú pháp: 
+<Tên biến mảng>[<Chỉ số đối tượng>].<Tên thành phần>([<Các đối số>]);
+II.Tính kế thừa và đa hình
+1. Khái niệm kế thừa 
+Lập trình hướng đối tượng có hai đặc trưng cơ bản: 
+• Đóng gói dữ liệu, được thể hiện bằng cách dùng khái niệm lớp để biểu diễn đối tượng với các thuộc tính private, chỉ cho phép bên ngoài truy nhập vào thông qua các phương thức get/set. 
+• Dùng lại mã, thể hiện bằng việc thừa kế giữa các lớp. Việc thừa kế cho phép các lớp thừa kế (gọi là lớp dẫn xuất) sử dụng lại các phương thức đã được định nghĩa trong các lớp gốc (gọi là lớp cơ sở). 
+1.1 Khai báo thừa kế 
+Cú pháp khai báo một lớp kế thừa từ một lớp khác như sau: 
+Class <Tên lớp dẫn xuất> : <Từ khóa dẫn xuất> <Tên lớp cơ sở>{ 
+…	 // Khai báo các thành phần lớp 
+}; 
+Trong đó: 
+• Tên lớp dẫn xuất: là tên lớp được cho kế thừa từ lớp khác. Tên lớp này tuân thủ theo quy tắc đặt tên biến trong C++. 
+• Tên lớp cở sở: là tên lớp đã được định nghĩa trước đó để cho lớp khác kế thừa. Tên lớp này cũng tuân thủ theo quy tắc đặt tên biến của C++. 
+• Từ khóa dẫn xuất: là từ khóa quy định tính chất của sự kế thừa. Có ba từ khóa dẫn xuất là private, protected và public. Mục tiếp theo sẽ trình bày ý nghĩa của các từ khóa dẫn xuất này
+1.2 Tính chất dẫn xuất 
+Sự kế thừa cho phép trong lớp dẫn xuất có thể sử dụng lại một số mã nguồn của các phương thức và thuộc tính đã được định nghĩa trong lớp cơ sở. Nghĩa là lớp dẫn xuất có thể truy nhập trực tiếp đến một số thành phần của lớp cơ sở. Tuy nhiên, phạm vi truy nhập từ lớp dẫn xuất đến lớp cơ sở không phải bao giờ cũng giống nhau: chúng được quy định bởi các từ khóa dẫn xuất private, protected và public. 
+Dẫn xuất private 
+Dẫn xuất private quy định phạm vi truy nhập như sau: 
+• Các thành phần private của lớp cơ sở thì không thể truy nhập được từ lớp dẫn xuất. 
+• Các thành phần protected của lớp cơ sở trở thành các thành phần private của lớp dẫn xuất 
+• Các thành phần public của lớp cơ sở cũng trở thành các thành phần private của lớp dẫn xuất. 
+• Phạm vi truy nhập từ bên ngoài vào lớp dẫn xuất được tuân thủ như quy tắc phạm vi lớp thông thường. 
+Dẫn xuất protected 
+Dẫn xuất protected quy định phạm vi truy nhập như sau: 
+• Các thành phần private của lớp cơ sở thì không thể truy nhập được từ lớp dẫn xuất. 
+• Các thành phần protected của lớp cơ sở trở thành các thành phần protected của lớp dẫn xuất 
+• Các thành phần public của lớp cơ sở cũng trở thành các thành phần protected của lớp dẫn xuất.
+• Phạm vi truy nhập từ bên ngoài vào lớp dẫn xuất được tuân thủ như quy tắc phạm vi lớp thông thường.
+Dẫn xuất public 
+Dẫn xuất public quy định phạm vi truy nhập như sau: 
+• Các thành phần private của lớp cơ sở thì không thể truy nhập được từ lớp dẫn xuất. 
+• Các thành phần protected của lớp cơ sở trở thành các thành phần protected của lớp dẫn xuất. 
+• Các thành phần public của lớp cơ sở vẫn là các thành phần public của lớp dẫn xuất. 
+• Phạm vi truy nhập từ bên ngoài vào lớp dẫn xuất được tuân thủ như quy tắc phạm vi lớp thông thường
+Bảng tóm tắt lại các quy tắc truy nhập được quy định bới các từ khóa dẫn xuất. 
+Kiểu dẫn xuất	Tính chất ở lớp cơ sở	Tính chất ở lớp dẫn xuất
+
+private	private
+protected
+public	Không truy nhập được
+private
+private
+
+protected	private
+protected
+public	Không truy nhập được
+protected
+protected
+
+public	private
+protected
+public	Không truy nhập được
+protected
+public
+
+2. Hàm khởi tạo và huỷ bỏ trong kế thừa 
+2.1 Hàm khởi tạo trong kế thừa 
+Khi khai báo một đối tượng có kiểu lớp được dẫn xuất từ một lớp cơ sở khác. Chương trình sẽ tự động gọi tới hàm khởi tạo của lớp dẫn xuất. Tuy nhiên, thứ tự được gọi sẽ bắt đầu từ hàm khởi tạo tương ứng của lớp cơ sở, sau đó đến hàm khởi tạo của lớp dẫn xuất. Do đó, thông thường, trong hàm khởi tạo của lớp dẫn xuất phải có hàm khởi tạo của lớp cơ sở. 
+Cú pháp khai báo hàm khởi tạo như sau:
+ 	<Tên hàm khởi tạo dẫn xuất>([<các tham số>]):
+<Tên hàm khởi tạo cơ sở> ([<Các đối số>]){
+ …	 // Khởi tạo các thuộc tính mới bổ sung của lớp dẫn xuất 
+}; 
+Vì tên hàm khởi tạo là trùng với tên lớp, nên có thể viết lại thành:
+<Tên lớp dẫn xuất>([<Các tham số>]) :
+<Tên lớp cơ sở>([<Các đối số>]){ 
+… 	// Khởi tạo các thuộc tính mới bổ sung của lớp dẫn xuất 
+};
+ Lưu ý: 
+• Nếu định nghĩa hàm khởi tạo bên ngoài phạm vi lớp thì phải thêm tên lớp dẫn xuất và toán tử phạm vi “::” trước tên hàm khởi tạo. 
+• Giữa tên hàm khởi tạo của lớp dẫn xuất và hàm khởi tạo của lớp cơ sở, chỉ có môt dấu hai chấm “:”, nếu là hai dấu “::” thì trở thành toán tử phạm vi lớp. Chương 6: Tính kế thừa và đa hình 118 
+• Nếu không chỉ rõ hàm khởi tạo của lớp cơ sở sau dấu hai chấm “:” chương trình sẽ tự động gọi hàm khởi tạo ngầm định hoặc hàm khởi tạo không có tham số của lớp cơ sở nếu hàm đó được định nghĩa tường minh trong lớp cơ sở.
+2.2. Hàm hủy bỏ trong kế thừa 
+Khi một đối tượng lớp dẫn xuất bị giải phóng khỏi bộ nhớ, thứ tự gọi các hàm hủy bỏ ngược với thứ tự gọi hàm thiết lập: gọi hàm hủy bỏ của lớp dẫn xuất trước khi gọi hàm hủy bỏ của lớp cơ sở. Vì mỗi lớp chỉ có nhiều nhất là một hàm hủy bỏ, nên ta không cần phải chỉ ra hàm hủy bỏ nào của lớp cơ sở sẽ được gọi sau khi hủy bỏ lớp dẫn xuất. Do vậy, hàm hủy bỏ trong lớp dẫn xuất được khai báo và định nghĩa hoàn toàn giống với các lớp thông thường:
+<Tên lớp>::~<Tên lớp>([<Các tham số>]){
+ … // giải phóng phần bộ nhớ cấp phát cho các thuộc tính bổ sung 
+} 
+Lưu ý: 
+• Hàm hủy bỏ của lớp dẫn xuất chỉ giải phóng phần bộ nhớ được cấp phát động cho các thuộc tính mới bổ sung trong lớp dẫn xuất, nếu có, mà không được giải phóng bộ nhớ được cấp cho các thuộc tính trong lớp cơ sở (phần này là do hàm hủy bỏ của lớp cơ sở đảm nhiệm). 
+• Không phải gọi tường minh hàm hủy bỏ của lớp cơ sở trong hàm hủy bỏ của lớp dẫn xuất. 
+• Ngay cả khi lớp dẫn xuất không định nghĩa tường minh hàm hủy bỏ (do không cần thiết) mà lớp cơ sở lại có định nghĩa tường minh. Chương trình vẫn gọi hàm hủy bỏ ngầm định của lớp dẫn xuất, sau đó vẫn gọi hàm hủy bỏ tường minh của lớp cơ sở.
+3. Truy nhập tới các thành phần trong kế thừa lớp 
+3.1. Phạm vi truy nhập
+ Mối quan hệ giữa các thành phần của lớp cơ sở và lớp dẫn xuất được quy định bởi các từ khóa dẫn xuất, được tóm tắt trong bảng dưới đây:
+Kiểu dẫn xuất	Tính chất ở lớp cơ sở	Tính chất ở lớp dẫn xuất
+
+private	private
+protected
+public	Không truy nhập được
+private
+private
+
+protected	private
+protected
+public	Không truy nhập được
+protected
+protected
+
+public	private
+protected
+public	Không truy nhập được
+protected
+public
+
+Ta xét phạm vi truy nhập theo hai loại: 
+• Phạm vi truy nhập từ các hàm bạn, lớp bạn của lớp dẫn xuất 
+• Phạm vi truy nhập từ các đối tượng có kiểu lớp dẫn xuất 
+Truy nhập từ các hàm bạn và lớp bạn của lớp dẫn xuất 
+Nhìn vào bảng, phạm vi truy nhập của hàm bạn, lớp bạn của lớp dẫn xuất vào lớp cơ sở như sau:
+• Với dẫn xuất private, hàm bạn có thể truy nhập được các thành phần protected và public của lớp cơ sở vì chúng trở thành các thành phần private của lớp dẫn xuất, có thể truy nhập được từ hàm bạn. 
+• Với dẫn xuất protected, hàm bạn cũng có thể truy nhập được các thành phần protected và public của lớp cơ sở vì chúng trở thành các thành phần protected của lớp dẫn xuất, có thể truy nhập được từ hàm bạn. 
+• Với dẫn xuất public, hàm bạn cũng có thể truy nhập được các thành phần protected và public của lớp cơ sở vì chúng trở thành các thành phần protected và public của lớp dẫn xuất, có thể truy nhập được từ hàm bạn. 
+• Đối với cả ba loại dẫn xuất, hàm bạn đều không truy nhập được các thành phần private của lớp cơ sở, vì các thành phần này cũng không truy nhập được từ lớp dẫn xuất. 
+Truy nhập từ các đối tượng tạo bởi lớp dẫn xuất 
+Nhìn vào bảng, phạm vi truy nhập của các đối tượng của lớp dẫn xuất vào lớp cơ sở như sau:
+• Với dẫn xuất private, đối tượng của lớp dẫn xuất không truy nhập được bất cứ thành phần nào của lớp cơ sở vì chúng trở thành các thành phần private của lớp dẫn xuất, không truy nhập được từ bên ngoài. 
+• Với dẫn xuất protected, đối tượng của lớp dẫn xuất không truy nhập được bất cứ thành phần nào của lớp cơ sở vì chúng trở thành các thành phần protected của lớp dẫn xuất, không truy nhập được từ bên ngoài. 
+• Với dẫn xuất public, đối tượng của lớp dẫn xuất có thể truy nhập được các thành phần public của lớp cơ sở vì chúng trở thành các thành phần public của lớp dẫn xuất, có thể truy nhập được từ bên ngoài.
+Bảng tổng kết phạm vi truy nhập từ hàm bạn và đối tượng của lớp dẫn xuất vào các thành phần của lớp cơ sở, được quy định bởi các từ khóa dẫn xuất.
+Kiểu dẫn xuất	Tính chất ở lớp cơ sở	Tính chất ở lớp dẫn xuất	Truy nhập từ hàm bạn của lớp dẫn xuất	Truy nhập từ đối tượng của lớp dẫn xuất
+
+private	private
+protected
+public	--
+private
+private	--
+ok
+ok	--
+--
+--
+
+protected	private
+protected
+public	--
+protected
+protected	--
+ok
+ok	--
+--
+--
+
+public	private
+protected
+public	--
+protected
+public	--
+ok
+ok	--
+--
+ok
+
+3.2. Sử dụng các thành phần của lớp cơ sở từ lớp dẫn xuất 
+Từ bảng tổng kết phạm vi truy nhập, ta thấy rằng chỉ có dẫn xuất theo kiểu public thì đối tượng của lớp dẫn xuất mới có thể truy nhập đến các thành phần (thuộc loại public) của lớp cơ sở. Khi đó, việc gọi đến các thành phần của lớp cơ sở cũng tương tự như gọi các thành phần lớp thông thường: 
+• Đối với biến đối tượng thông thường:
+ 	<Tên đối tượng>.<Tên thành phần>([Các đối số]); 
+• Đối với con trỏ đối tượng:
+<Tên đối tượng> => < Tên thành phần >([Các đối số]); 
+Lưu ý: 
+• Cách gọi hàm thành phần này được áp dụng khi trong lớp dẫn xuất, ta không định nghĩa lại các hàm thành phần của lớp cơ sở.
+3.3. Định nghĩa chồng các phương thức của lớp cơ sở 
+Định nghĩa chồng phương thức của lớp cơ sở 
+Một phương thức của lớp cơ sở bị coi là nạp chồng nếu ở lớp dẫn xuất cũng định nghĩa một phương thức có cùng tên. 
+Sử dụng các phương thức nạp chồng 
+Từ một đối tượng của lớp dẫn xuất, việc truy nhập đến phương thức đã được định nghĩa lại trong lớp dẫn xuất được thực hiện như lời gọi một phương thức thông thường: 
+• Đối với biến đối tượng thông thường:
+<Tên đối tượng> . <Tên thành phần>([Các đối số]); 
+• Đối với con trỏ đối tượng:
+ 	<Tên đối tượng> => <Tên thành phần> ([Các đối số]); 
+Trong trường hợp, từ một đối tượng của lớp dẫn xuất, muốn truy nhập đến một phương thức của lớp cơ sở (đã bị định nghĩa lại ở lớp dẫn xuất) thì phải sử dụng chỉ thị phạm vi lớp trước phương thức được gọi:
+• Đối với biến đối tượng thông thường:
+ 	< Tên đối tượng> . < Tên lớp cơ sở>:: < Tên thành phần >([Các đối số]); 
+• Đối với con trỏ đối tượng: 
+	< Tên đối tượng> => < Tên lớp cơ sở>:: < Tên thành phần >([Các đối số]); 
+
+3.4. Chuyển đổi kiểu giữa lớp cơ sở và lớp dẫn xuất 
+Về mặt dữ liệu, một lớp dẫn xuất bao giờ cũng chứa toàn bộ dữ liệu của lớp cơ sở: Ta luôn tìm thấy lớp cơ sở trong lớp dẫn xuất, nhưng không phải bao giờ cũng tìm thấy lớp dẫn xuất trong lớp cơ sở. Do vậy: 
+• Có thể gán một đối tượng lớp dẫn xuất cho một đối tượng lớp cơ sở:
+<Đối tượng lớp cơ sở> = < Đối tượng lớp dẫn xuất>; // Đúng 
+• Nhưng không thể gán một đối tượng lớp cơ sở cho một đối tượng lớp dẫn xuất: 
+<Đối tượng lớp dẫn xuất> = < Đối tượng lớp cơ sở>; // Không được. 
+Lưu ý: 
+• Nguyên tắc chuyển kiểu này cũng đúng với các phép gán con trỏ: một con trỏ đối tượng lớp cơ sở có thể trỏ đến địa chỉ của một đối tượng lớp dẫn xuất. Nhưng một con trỏ đối tượng lớp dẫn xuất không thể trỏ đến địa chỉ một đối tượng lớp cơ sở. 
+• Nguyên tắc chuyển kiểu này cũng đúng với truyền đối số cho hàm: có thể truyền một đối tượng lớp dẫn xuất vào vị trí của tham số có kiểu lớp cơ sở. Nhưng không thể truyền một đối tượng lớp cơ sở vào vị trí một tham số có kiểu lớp dẫn xuất.
+
+4. Đa kế thừa 
+C++ cho phép đa kế thừa, tức là một lớp có thể được dẫn xuất từ nhiều lớp cơ sở khác nhau, với những kiểu dẫn xuất khác nhau.
+4.1. Khai báo đa kế thừa 
+Đa kế thừa được khai báo theo cú pháp: 
+class <Tên lớp dẫn xuất>: <Từ khoá dẫn xuất> < Tên lớp cơ sở 1 >,
+< Từ khoá dẫn xuất >  < Tên lớp cơ sở 2 > ,
+ … 
+< Từ khoá dẫn xuất > < Tên lớp cơ sở n>{
+ … 	// Khai báo thêm các thành phần lớp dẫn xuất 
+}; 
+Lưu ý: 
+• Trong đa kế thừa, mỗi lớp cơ sở được phân cách nhau bởi dấu phẩy “,”. 
+• Mỗi lớp cơ sở cơ thể có một kiểu dẫn xuất bởi một từ khoá dẫn xuất khác nhau. 
+• Nguyên tắc truy nhập vào các thành phần lớp cơ sở cũng hoàn toàn tương tự như trong kế thừa đơn. 
+4.2. Hàm khởi tạo và hàm huỷ bỏ trong đa kế thừa 
+Hàm khởi tạo trong đa kế thừa 
+Hàm khởi tạo trong đa kế thừa được khai báo tương tự như trong đơn kế thừa, ngoại trừ việc phải sắp xếp thứ tự gọi tới hàm khởi tạo của các lớp cơ sở: thông thường, thứ tự gọi đến hàm khởi tạo của các lớp cơ sở nên tuân theo thứ tự dẫn xuất từ các lớp cơ sở trong đa kế thừa
+Lưu ý: 
+• Trong trường hợp dùng hàm khởi tạo ngầm định hoặc không có tham số, ta có thể không cần gọi tường minh các hàm khởi tạo của các lớp cơ sở, trình biên dịch sẽ tự động gọi tới chúng theo đúng thứ tự dẫn xuất
+Hàm huỷ bỏ trong đa kế thừa 
+Vì hàm huỷ bỏ là duy nhất của mỗi lớp, hơn nữa hàm huỷ bỏ của lớp cơ sở sẽ được tự động gọi đến khi giải phóng đối tượng của lớp dẫn xuất. Cho nên hàm huỷ bỏ trong đa kế thừa hoàn toàn tương tự hàm huỷ bỏ trong đơn kế thừa: 
+• Hàm huỷ bỏ của lớp dẫn xuất chỉ giải phóng bộ nhớ cho các thành phần bổ sung, nếu có, của lớp dẫn xuất. 
+• Hàm huỷ bỏ của lớp dẫn xuất sẽ được gọi đến sớm nhất. Sau đó các hàm huỷ bỏ của các lớp cơ sở sẽ được gọi đến. 
+• Quá trình này được trình biên dịch thực hiện tự động. 
+4.3. Truy nhập các thành phần lớp trong đa kế thừa 
+Việc truy nhập đến các thành phần của các lớp trong đa kế thừa được dựa trên các nguyên tắc sau: 
+• Việc truy nhập từ đối tượng lớp dẫn xuất đến các thành phần của mỗi lớp cơ sở được tuân theo quy tắc phạm vi tương tự như trong đơn kế thừa. 
+• Trong trường hợp các lớp cơ sở đều có các thành phần cùng tên, việc truy xuất đến thành phần của lớp nào phải được chỉ rõ bằng toán tử phạm vi: “<Tên lớp>::” đối với thành phần lớp cơ sở đó.
+
+5. Lớp cơ sở trừu tượng 
+5.1. Khai báo lớp cơ sở trừu tượng 
+Việc chỉ ra một sự kế thừa trừu tượng được thực hiện bằng từ khoá virtual khi khai báo lớp cơ sở:
+ class < Tên lớp cơ sở>: < Từ khoá dẫn xuất> virtual < Tên lớp cơ sở>{
+ …	 // Khai báo các thành phần bổ sung 
+}; 
+Lưu ý: 
+• Từ khoá virtual được viết bằng chữ thường. 
+• Từ khoá virtual không ảnh hưởng đến phạm vi truy nhập thành phần lớp cơ sở, phạm vi này vẫn được quy định bởi từ khoá dẫn xuất như thông thường. 
+• Từ khoá virtual chỉ ra một lớp cơ sở là trừu tượng nhưng lại được viết trong khi khai báo lớp dẫn xuất. 
+• Một lớp dẫn xuất có thể được kế thừa từ nhiều lớp cơ sở trừu tượng 
+5.2. Hàm khởi tạo lớp cơ sở trừu tượng 
+Khác với các lớp cơ sở thông thường, khi có một lớp dẫn xuất từ một lớp cơ sở trừu tượng, lại được lấy làm cơ sở cho một lớp dẫn xuất khác thì trong hàm khởi tạo của lớp dẫn xuất cuối cùng, vẫn phải gọi hàm khởi tạo tường minh của lớp cơ sở trừu tượng. Hơn nữa, hàm khởi tạo của lớp cơ sở trừu tượng phải được gọi sớm nhất.
+
+6. Đa hình 
+6.1. Đặt vấn đề 
+Sự kế thừa trong C++ cho phép có sự tương ứng giữa lớp cơ sở và các lớp dẫn xuất trong sơ đồ thừa kế:
+• Một con trỏ có kiểu lớp cơ sở luôn có thể trỏ đến địa chỉ của một đối tượng của lớp dẫn xuất. 
+• Tuy nhiên, khi thực hiện lời gọi một phương thức của lớp, trình biên dịch sẽ quan tâm đến kiểu của con trỏ chứ không phải đối tượng mà con trỏ đang trỏ tới: phương thức của lớp mà con trỏ có kiểu được gọi chứ không phải phương thức của đối tượng mà con trỏ đang trỏ tới được gọi.
+Để giải quyết vấn đề này, C++ đưa ra một khái niệm là phương thức trừu tượng. Bằng cách sử dụng phương thức trừu tượng. Khi gọi một phương thức từ một con trỏ đối tượng, trình biên dịch sẽ xác định kiểu của đối tượng mà con trỏ đang trỏ đến, sau đó nó sẽ gọi phương thức tương ứng với đối tượng mà con trỏ đang trỏ tới.
+6.2. Khai báo phương thức trừu tượng
+Phương thức trừu tượng (còn gọi là phương thức ảo, hàm ảo) được khai báo với từ khoá virtual: 
+• Nếu khai báo trong phạm vi lớp:
+ virtual<Kiểu trả về>  <Tên phương thức>([<Các tham số>]); 
+• Nếu định nghĩa ngoài phạm vi lớp: 
+Virtual <Kiểu trả về> <Tên lớp> :: <Tên phương thức >([<Các tham số]){…} 
+Lưu ý: 
+• Từ khoá virtual có thể đặt trước hay sau kiểu trả về của phương thức. 
+• Với cùng một phương thức được khai báo ở lớp cơ sở lẫn lớp dẫn xuất, chỉ cần dùng từ khoá virtual ở một trong hai lần định nghĩa phương thức đó là đủ: hoặc ở lớp cơ sở, hoặc ở lớp dẫn xuất. 
+• Trong trường hợp cây kế thừa có nhiều mức, cũng chỉ cần khai báo phương thức là trừu tượng (virtual) ở một mức bất kì. Khi đó, tất cả các phương thức trùng tên với phương thức đó ở tất cả các mức đều được coi là trừu tượng. 
+• Đôi khi không cần thiết phải định nghĩa chồng (trong lớp dẫn xuất) một phương thức đã được khai báo trừu tượng trong lớp cơ sở. 
+6.3. Sử dụng phương thức trừu tượng – đa hình
+Một khi phương thức được khai báo là trừu tượng thì khi một con trỏ gọi đến phương thức đó, chương trình sẽ thực hiện phương thức tương ứng với đối tượng mà con trỏ đang trỏ tới, thay vì thực hiện phương thức của lớp cùng kiểu với con trỏ. Đây được gọi là hiện tượng đa hình (tương ứng bội) trong C++.
+Lưu ý: 
+• Trong trường hợp ở lớp dẫn xuất không định nghĩa lại phương thức trừu tượng, thì chương trình sẽ gọi phương thức của lớp cơ sở, nhưng với dữ liệu của lớp dẫn xuất.
+
+III. Vector trong C++
+Vector là gì và tại sao nên dùng vector?
+Bạn đã bao giờ phát chán việc quản lý mảng động qua con trỏ trong C++ chưa? Hay việc mỗi khi bạn muốn resize kích thước mảng động trong C++, bạn phải tạo mảng mới, copy các phần tử qua mảng mới, rồi lại xóa mảng cũ đi. Quá phiền phức, tốn quá nhiều thời gian, vì thế mà C++ còn cung cấp cho chúng ta một kiểu nữa đó chính là kiểu vector.
+Khái niệm
+	Vector là một chuỗi các phần tử có cùng kiểu dữ liệu, cũng giống như mảng bình thường trong C++. 
+Đầu tiên, vector có thể tự tăng kích thước của nó mỗi khi ta thực hiện thêm một phần tử vào vector. Thứ 2, vector có thể tự giải phóng bộ nhớ khi ta thực hiện xong đoạn code và thoát ra khỏi scope chứa vector đó, việc này nhầm tránh rò rỉ bộ nhớ khi ta quên delete[] như con trỏ. Thứ ba là vector cung cấp các hàm cần thiết để chúng ta cho thể thao tác với mảng một cách dễ dàng.
+1. Cú pháp khai báo và các hàm cơ bản
+Để sử dụng vector bạn cần thêm thư viện vector trước. Cú pháp khai báo một vector như sau:
+
+ 
+
+Vậy là chúng ta đã có một vector với mỗi phần tử có kiểu dữ liệu là [kiểu_dữ_liệu]. Bạn có thể gán giá trị trực tiếp cho vector ngay khi khởi tạo như ví dụ sau:
+
+ 
+Bạn cũng có thể khởi tạo một vector và gán giá trị một vector khác cho nó như sau:
+
+ 
+
+2. Truy xuất phần tử của vector
+
+Truy xuất phần tử trong vector có thể được thực hiện qua hai cách là qua phương thức at() hoặc qua dấu [] như mảng thông thường.
+
+ 
+
+Cả hai cách đều có công dụng như nhau vậy thì sự khác nhau giữa chúng là gì? Chính là khả năng kiểm tra phạm vi. Đối với phương thức at(), bạn có thể dùng try catch để bắt lỗi như sau:
+
+ 
+
+3. Lấy phần tử đầu và cuối của vector
+
+Để lấy phần tử đầu và cuối ta sử phương thức hàm font() và back().
+
+ 
+
+4. Thêm phần tử vào cuối vector
+
+Để thêm phần tử vào cuối vector ta sử dụng phương thức push_back().
+
+ 
+
+Lưu ý sau khi thêm vào thì size của vector sẽ tăng lên 1 và nếu size vượt quá capacity thì capacity cũng sẽ tự động được tăng lên.
+
+5. Loại bỏ phần tử cuối vector
+Để loại bỏ đi phần tử cuối cùng của vector, ta sử dụng phương thức pop_back()
+
+ 
+
+Lưu ý sau khi loại bỏ phần tử cuối thì size sẽ tự giảm xuống 1 nhưng capacity không thay đổi
+
+6. Số phần tử của vector
+
+Để biết được số phần tử của vector ta sử dụng phương thức size().
+
+ 
+
+7.  Kích thức của vector
+Để biết được kích thước của vector ta dùng phương thức capacity().
+
+ 
+
+Có nhiều bạn bị nhầm giữa số lượng phần tử (size) và kích thước vector (capacity). Kích thước là số lượng phần tử nhiều nhất mà vector đó từng chứa còn số lượng phần tử là số lượng phần tử mà vector đó hiện tại đang chứa.
+Ví dụ:
+ 
+
+8.  Thay đổi số phần tử của vector
+Chúng ta có thể dùng phương thức resize() để thay đổi số phần tử của vector.
+ 
+
+Lưu ý là sau khi resize thì vector sẽ chỉ lấy đủ số phần tử đã set còn tất cả những phần tử sau sẽ bỏ đi.
+ 
+
+9. Xóa hết phần tử của vector
+Để xóa tất cả các phần tử của vector ta dùng phương thức clear(). Sau khi xóa thì size cũng sẽ trở về 0.
+ 
+
+
+
+
+Chương 3: Tính chất cấu trúc dữ liệu và giải thuật
+I. Các thuật toán sắp xếp 
+1. Sắp xếp nổi bọt
+Sắp xếp nổi bọt hay bubble sort là thuật toán sắp xếp đầu tiên mà mình giới thiệu đến các bạn và cũng là thuật toán đơn giản nhất trong các thuật toán mà mình sẽ giới thiệu, ý tưởng của thuật toán này như sau: 
+Duyệt qua danh sách, làm cho các phần tử lớn nhất hoặc nhỏ nhất dịch chuyển về phía cuối danh sách, tiếp tục lại làm phần tử lớn nhất hoặc nhỏ nhất kế đó dịch chuyển về cuối hay chính là làm cho phần tử nhỏ nhất (hoặc lớn nhất) nổi lên, cứ như vậy cho đến hết danh sách Cụ thể các bước thực hiện của giải thuật này như sau:
+1.	Gán i = 0
+2.	Gán j = 0
+3.	Nếu A[j] > A [j + 1] thì đối chỗ A[j] và A [j + 1]
+4.	Nếu j < n – i – 1:
+o	Đúng thì j = j + 1 và quay lại bước 3
+o	Sai thì sang bước 5
+5.	Nếu i < n – 1:
+o	Đúng thì i = i + 1 và quay lại bước 2
+o	Sai thì dừng lại
+ 
+
+Sắp xếp nổi bọt là một thuật toán sắp xếp ổn định. Về độ phức tạp, do dùng hai vòng lặp lồng vào nhau nên độ phức tạp thời gian trung bình của thuật toán này là O(n2).
+
+2. Sắp xếp chọn (Selection Sort)
+Sắp xếp chọn hay selection sort sẽ là thuật toán thứ hai mà mình giới thiệu đến các bạn, ý tưởng của thuật toán này như sau: duyệt từ đầu đến phần tử kề cuối danh sách, duyệt tìm phần tử nhỏ nhất từ vị trí kế phần tử đang duyệt đến hết, sau đó đổi vị trí của phần tử nhỏ nhất đó với phần tử đang duyệt và cứ tiếp tục như vậy. 
+Cho mảng A có n phần tử chưa được sắp xếp. Cụ thể các bước của giải thuật này áp dụng trên mảng A như sau:
+
+1.	Gán i = 0
+2.	Gán j = i + 1 và min = A[i]
+3.	Nếu j < n:
+o	Nếu A[j] < A[min] thì min = j
+o	j = j + 1
+o	Quay lại bước 3
+4.	Đổi chỗ A[min] và A[i]
+5.	Nếu i < n – 1:
+o	Đúng thì i = i + 1 và quay lại bước 2
+o	Sai thì dừng lại
+ 
+Đối với thuật toán sắp xếp chọn, do sử dụng 2 vòng lặp lồng vào nhau, độ phức tạp thời gian trung bình của thuật toán này là O(n2). Thuật toán sắp xếp chọn mình cài đặt là thuật toán sắp xếp không ổn định, nó còn có một phiên bản khác cải tiến là thuật toán sắp xếp chọn ổn định.
+3. Sắp xếp chèn (Insertion Sort)
+Sắp xếp chèn hay insertion sort là thuật toán tiếp theo mà mình giới thiệu, ý tưởng của thuật toán này như sau: ta có mảng ban đầu gồm phần tử A[0] xem như đã sắp xếp, ta sẽ duyệt từ phần tử 1 đến n – 1, tìm cách chèn những phần tử đó vào vị trí thích hợp trong mảng ban đầu đã được sắp xếp. 
+Giả sử cho mảng A có n phần tử chưa được sắp xếp. Các bước thực hiện của thuật toán áp dụng trên mảng A như sau:
+
+1.	Gán i = 1
+2.	Gán x = A[i] và pos = i – 1
+3.	Nếu pos >= 0 và A[pos] > x:
+o	A [pos + 1] = A[pos]
+o	pos = pos – 1
+o	Quay lại bước 3
+4.	A [pos + 1] = x
+5.	Nếu i < n:
+o	Đúng thì i = i + 1 và quay lại bước 2
+o	Sai thì dừng lại
+ 
+
+
+4.  Sắp xếp trộn (Merge Sort)
+Sắp xếp trộn (merge sort) là một thuật toán dựa trên kỹ thuật chia để trị, ý tưởng của thuật toán này như sau: chia đôi mảng thành hai mảng con, sắp xếp hai mảng con đó và trộn lại theo đúng thứ tự, mảng con được sắp xếp bằng cách tương tự. 
+Giả sử left là vị trí đầu và right là cuối mảng đang xét, cụ thể các bước của thuật toán như sau:
+•	Nếu mảng còn có thể chia đôi được (tức left < right)
+1.	Tìm vị trí chính giữa mảng
+2.	Sắp xếp mảng thứ nhất (từ vị trí left đến mid)
+3.	Sắp xếp mảng thứ 2 (từ vị trí mid + 1 đến right)
+4.	Trộn hai mảng đã sắp xếp với nhau
+
+
+// Hàm trộn hai mảng con vào nhau theo đúng thứ tự
+void Merge (int A [], int left, int mid, int right)
+{
+    int n1 = mid - left + 1; // Số phần tử của mảng thứ nhất
+    int n2 = right - mid; // Số phần tử của mảng thứ hai
+
+    // Tạo hai mảng tạm để lưu hai mảng con
+    int *LeftArr = new int[n1];
+    int *RightArr = new int[n2];
+
+    // Sao chép phần tử 2 mảng con vào mảng tạm
+    for (int i = 0; i < n1; i++)
+        LeftArr[i] = A [left + i];
+    for (int i = 0; i < n2; i++)
+        RightArr[i] = A [mid + 1 + i];
+
+    // current là vị trí hiện tại trong mảng A
+    int i = 0, j = 0, current = left;
+
+    // Trộn hai mảng vào nhau theo đúng thứ tự
+    while (i < n1 && j < n2)
+        if (LeftArr[i] <= RightArr[j])
+            A[current++] = LeftArr[i++];
+        else
+            A[current++] = RightArr[j++];
+
+    // Nếu mảng thứ nhất còn phần tử thì copy nó vào mảng A
+    while (i < n1)
+        A[current++] = LeftArr[i++];
+
+    // Nếu mảng thứ hai còn phần tử thì copy nó vào mảng A
+    while (j < n2)
+        A[current++] = RightArr[j++];
+
+    // Xóa hai mảng tạm đi
+    Delete [] LeftArr, RightArr;
+}
+
+// Hàm chia đôi mảng và gọi hàm trộn
+void _MergeSort (int A [], int left, int right)
+{
+    // Kiểm tra xem còn chia đôi mảng được không
+    if (left < right)
+    {
+        // Tìm phần tử chính giữa
+        // left + (right - left) / 2 tương đương với (left + right) / 2
+        // việc này giúp tránh bị tràn số với left, right quá lớn
+        int mid = left + (right - left) / 2;
+ 
+        // Sắp xếp mảng thứ nhất
+        _MergeSort (A, left, mid);
+        // Sắp xếp mảng thứ hai
+        _MergeSort (A, mid + 1, right);
+
+        // Trộn hai mảng đã sắp xếp
+        Merge (A, left, mid, right);
+    }
+}
+
+// Hàm sắp xếp chính, được gọi khi dùng merge sort
+void MergeSort (int A [], int n)
+{
+    _MergeSort (A, 0, n - 1);
+}
+
+Về độ phức tạp, thuật toán Merge Sort có độ phức tạp thời gian trung bình là O(nlog(n)), về không gian, do sử dụng mảng phụ để lưu trữ, và 2 mảng phụ dài nhất là hai mảng phụ ở lần chia đầu tiên có tổng số phần tử bằng đúng số phần tử của mảng nên độ phức tạp sẽ là O(n). Sắp xếp trộn là thuật toán sắp xếp ổn định.
+5. Sắp xếp nhanh (Quick Sort)
+Sắp xếp nhanh (quick sort) hay sắp xếp phân đoạn (Partition) là là thuật toán sắp xếp dựa trên kỹ thuật chia để trị, cụ thể ý tưởng là: chọn một điểm làm chốt (gọi là pivot), sắp xếp mọi phần tử bên trái chốt đều nhỏ hơn chốt và mọi phần tử bên phải đều lớn hơn chốt, sau khi xong ta được 2 dãy con bên trái và bên phải, áp dụng tương tự cách sắp xếp này cho 2 dãy con vừa tìm được cho đến khi dãy con chỉ còn 1 phần tử.
+Cụ thể áp dụng thuật toán cho mảng như sau:
+1.	Chọn một phần tử làm chốt
+2.	Sắp xếp phần tử bên trái nhỏ hơn chốt
+3.	Sắp xếp phần tử bên phải nhỏ hơn chốt
+4.	Sắp xếp hai mảng con bên trái và bên phải pivot
+Phần tử được chọn làm chốt rất quan trọng, nó quyết định thời gian thực thi của thuật toán. Phần tử được chọn làm chốt tối ưu nhất là phần tử trung vị, phần tử này làm cho số phần tử nhỏ hơn trong dãy bằng hoặc sấp xỉ số phần tử lớn hơn trong dãy. Tuy nhiên, việc tìm phần tử này rất tốn kém, phải có thuật toán tìm riêng, từ đó làm giảm hiệu suất của thuật toán tìm kiếm nhanh, do đó, để đơn giản, người ta thường sử dụng phần tử chính giữa làm chốt.
+Trong bài viết này, mình cũng sẽ sử dụng phần tử chính giữa làm chốt, thuật toán cài đặt trong C++ như sau:
+void Partition (int A [], int left, int right)
+{
+    // Kiểm tra xem nếu mảng có 1 phần tử thì không cần sắp xếp
+    if (left >= right)
+        return;
+
+    int pivot = A [(left + right) / 2]; // Chọn phần tử chính giữa dãy làm chốt
+
+    // i là vị trí đầu và j là cuối đoạn
+    int i = left, j = right;
+    while (i < j)
+    {
+        while (A[i] < pivot) // Nếu phần tử bên trái nhỏ hơn pivot thì ok, bỏ qua
+            i++;
+        while (A[j] > pivot) // Nếu phần tử bên phải nhỏ hơn pivot thì ok, bỏ qua
+            j--;
+
+        // Sau khi kết thúc hai vòng while ở trên thì chắc chắn
+        // vị trí A[i] phải lớn hơn pivot và A[j] phải nhỏ hơn pivot
+        // nếu i < j
+        if (i <= j)
+        {
+            if (i < j) // nếu i! = j (tức không trùng thì mới cần hoán đổi)
+                swap(A[i], A[j]); // Thực hiện đổi chổ ta được A[i] < pivot và A[j] > pivot
+            i++;
+            j--;
+        }
+    }
+
+    // Gọi đệ quy sắp xếp dãy bên trái pivot
+    Partition (A, left, j);
+    // Gọi đệ quy sắp xếp dãy bên phải pivot
+    Partition (A, i, right);
+}
+
+// Hàm sắp xếp chính
+void QuickSort (int A [], int n)
+{
+    Partition (A, 0, n - 1);
+}
+
+
+ Thuật toán sắp xếp nhanh không phải là thuật toán sắp xếp ổn định, tuy nhiên vẫn có thể cải tiến nó thành thuật toán sắp xếp ổn định. Độ phức tạp thời gian trung bình của thuật toán này là O(nlog(n)).
+
+II. Các thuật toán tìm kiếm
+1. Tìm kiếm tuyến tính
+Tìm kiếm tuyến tính (linear search) hay tìm kiếm tuần tự (sequential search) là thuật toán tìm kiếm bằng cách duyệt qua tất cả các phần tử của danh sách cho đến khi gặp phần tử cần tìm hoặc là đã hết danh sách. Do cách tìm kiếm duyệt từ đầu đến cuối này, độ phức tạp thời gian của thuật toán này sẽ là O(n).
+Chúng ta có một mảng A có n phần tử bắt đầu từ vị trí 0. Để tìm kiếm phần tử x trong mảng A này, ta làm như sau:
+1.	Gán i = 0.
+2.	So sánh giá trị của A[i] và x:
+o	Nếu A[i] == x thì dừng và trả về giá trị của i (vị trí của x trong mảng A).
+o	Nếu A [i]! = x thì sang bước 3.
+3.	Gán i = i + 1:
+o	Nếu i == n (tức hết mảng) thì dừng lại và trả kết quả là -1 (không tìm thấy x).
+o	Nếu i < n thì quay lại bước 2
+Dựa trên những thao tác trên, chúng ta có thể viết lại code trong C++ như sau:
+int LinearSearch (int A [], int n, int x)
+{
+    int i = 0;
+    while (i < n && A [i]! = x)
+        i++;
+    if (i == n)
+        return -1; // không tìm thấy x
+    return i; // tìm thấy x, trả về vị trí của x trong mảng a
+}
+Thông thường, các bạn hay sử dụng for cho nó đơn giản như sau:
+int LinearSearch (int A [], int n, int x)
+{
+    for (int i = 0; i < n; i++)
+        if (A[i] == x)
+            return i;
+    return -1; // duyệt hết mảng, không tìm thấy x
+}
+Chúng ta có thể cải tiến nó một chút bằng phương pháp đặt lính canh như sau: gán A[n] = x, trong lúc kiểm tra không cần kiểm tra i < n nữa bởi vì nếu chạy đến cuối cùng thế nào cũng gặp x chính là “lính” chúng ta vừa đặt. Vậy thuật toán trở thành:
+int LinearSearch (int A [], int n, int x)
+{
+    int i = 0;
+    A[n] = x;
+    while (A [i]! = x)
+        i++;
+    if (i == n)
+        return -1;
+    return i;
+}
+
+2. Tìm kiếm nhị phân
+Tìm kiếm nhị phân (binary search) hay còn một số tên gọi khác nữa như tìm kiếm nửa khoảng (half-interval search), tìm kiếm logarit (logarithmic search), chặt nhị phân (binary chop) là thuật toán tìm kiếm dựa trên việc chia đôi khoảng đang xét sau mỗi lần lặp, sau đó xét tiếp trong nửa khoảng có khả năng chứa giá trị cần tìm, cứ như vậy cho đến khi không chia đôi khoảng được nữa. Thuật toán tìm kiếm nhị phân chỉ áp dụng được cho danh sách đã có thứ tự hay đã được sắp xếp.
+Ví dụ như bạn có một dãy số tăng từ 1 đến 100, yêu cầu bạn tìm số 30. Bạn xem phần tử chính giữa của dãy số thì thấy là số 50, vậy thì bạn biết chắc là 30 chỉ có thể nằm trong khoảng dưới 50 thôi, vậy thì giới hạn tìm kiếm được thu hẹp lại một nửa. Ví dụ như tìm số 70 chẳng hạn thì 50 lại nhỏ hơn 70, do đó ta biết chắc 70 chỉ có thể nằm trong khoảng từ 51 đến 100 thôi. Cứ tiếp tục như thế cho đến khi tìm gặp hoặc không thể chia đôi khoảng nữa.
+Do cách tìm kiếm chia đôi khoảng này, sau mỗi lần lặp, khoảng đang xét lại được chia đôi, và tiếp tục khoảng tiếp lại chia đôi khoảng đã được chia trước đó. Do đó, độ phức tạp thời gian của thuật toán này sẽ là O(log(n)), tốt hơn rất rất nhiều so với tìm kiếm tuyến tính.
+Cho một mảng A có n phần tử bắt đầu từ vị trí 0, mảng A được sắp xếp tăng dần (lưu ý là thứ tự tăng dần, đối với giảm dần chúng ta sẽ có cách cài đặt khác một chút sẽ được trình bày bên dưới). Để tìm phần tử có giá trị x trong mảng A chúng ta sẽ cài đặt thuật toán tìm kiếm nhị phân như sau:
+1.	Gán left = 0, right = n – 1.
+2.	Gán mid = (left + right) / 2 (lấy phần nguyên, đây là phần tử chính giữa của khoảng hiện tại)
+o	Nếu như A[mid] == x:
+	Dừng lại và trả về giá trị của mid (chính là vị trí của x trong mảng A).
+o	Nếu như A[mid] > x (có thể x nằm trong nửa khoảng trước):
+	right = mid – 1 // giới hạn khoảng tìm kiếm lại là nửa khoảng trước
+o	Nếu như A[mid] < x (có thể x nằm trong nửa khoảng sau):
+	left = mid + 1 // giới hạn khoảng tìm kiếm lại là nửa khoảng sau
+3.	Nếu left <= right:
+o	Đúng thì quay lại bước 2 (còn chia đôi được).
+o	Sai thì dừng và trả về kết quả -1 (không tìm thấy x)
+
+Thuật toán đã có, giờ hãy chúng ta xem cài đặt nó trong C++ như thế nào nha:
+int BinarySearch (int A [], int n, int x)
+{
+    int left = 0;
+    int right = n - 1;
+    int mid;
+    while (left <= right)
+    {
+        mid = (left + right) / 2;
+        if (A[mid] == x)
+            return mid; // tìm thấy x, trả về mid là vị trí của x trong mảng A
+        if (A[mid] > x)
+            right = mid - 1; // Giới hạn khoảng tìm kiếm lại là nửa khoảng trước
+        else if (A[mid] < x)
+            left = mid + 1; // Giới hạn khoảng tìm kiếm lại là nửa khoảng sau
+    }
+    return -1; // không tìm thấy x
+}
+Đối với mảng được sắp xếp giảm, các bạn chỉ cần thay đổi chỗ so sánh A[mid] và x như sau:
+•	A[mid] < x:
+o	right = mid – 1
+•	A[mid] > x:
+o	left = mid + 1
+3 Tìm kiếm nội suy
+Tìm kiếm nội suy (interpolation search) là một thuật toán cải tiến từ thuật toán tìm kiếm nhị phân. Thay vì xác định điểm chính giữa của danh sách, thuật toán tìm kiếm nội suy xác định điểm gần với vị trí của phần tử cần tìm, do đó tối ưu được thời gian hơn so với thuật toán tìm kiếm nhị phân. Độ phức tạp thời gian cũng vì thế mà tốt hơn là O(log(log(n))).
+Tuy nhiên, thuật toán tìm kiếm nhị phân luôn ổn định với độ phức tạp thời gian là O(log(n)), thuật toán tìm kiếm nội suy lại không như vậy. Trong những trường hợp xấu nhất như dãy tăng/giảm phân bố không đều, thuật toán tìm kiếm này đạt độ phức tạp là O(n), không khác gì dùng thuật toán tìm kiếm tuyến tính cả. Do đó, bạn nên sử dụng thuật toán tìm kiếm nhị phân để đảm bảo được độ phức tạp O(log(n)).
+Vẫn là mảng A, vẫn n phần tử bắt đầu từ 0 và tăng dần. Tìm x trong mảng này dùng thuật toán tìm kiếm nội suy như sau:
+1.	Gán left = 0, right = n – 1.
+2.	Gán mid = left + (right – left) * (x – a[left]) / (a[right] – a[left]):
+o	Nếu như A[mid] == x:
+	Dừng lại và trả về giá trị của mid.
+o	Nếu như A[mid] > x:
+	right = mid – 1
+o	Nếu như A[mid] < x:
+	left = mid + 1
+3.	Nếu left <= right và x >= A[left] và x <= A[right] (x còn nằm trong đoạn [A[left]; A[right]]):
+o	Đúng thì quay lại bước 2.
+o	Sai thì dừng và trả về kết quả -1 (không tìm thấy x)
+       Và tương tự với mảng giảm dần, bạn chỉ cần sửa lại:
+•	A[mid] < x:
+o	right = mid – 1
+•	A[mid] > x:
+o	left = mid + 1
+Giờ hãy cùng xem cài đặt thuật toán tìm kiếm nội suy trong C++ với mảng tăng nha:
+int InterpolationSearch (int A[], int n, int x)
+{
+    int left = 0;
+    int right = n - 1;
+    int mid;
+    while (left <= right && x >= A[left] && x <= A[right])
+    {
+        mid = left + (right - left) * (x - A[left]) / (A[right] - A[left]);
+        if (A[mid] == x)
+            return mid;
+        if (A[mid] > x)
+            right = mid - 1;
+        else if (A[mid] < x)
+            left = mid + 1;
+    }
+    return -1; // Không tìm thấy x
+}
+Lưu ý: khi sử dụng thuật toán tìm kiếm nhị phân hoặc nội suy, nếu như mảng chưa được sắp xếp, nên sử dụng kèm với các thuật toán sắp xếp có hiệu suất cao như Quick Sort hay Merge Sort để sắp xếp nhằm tối ưu hóa thuật toán. Nếu tìm kiếm nhanh mà sắp xếp chậm cũng không có ý nghĩa gì đối với tập dữ liệu lớn.
+
+Chương 4: Đồ họa
+1. Windows.h là gì?
+Windows.h là một header của Windows dành riêng cho ngôn ngữ lập trình C và C++. Trong đó chứa các khai báo cho tất cả các hàm (function) trong Windows API, tất cả các macro thường dùng bởi các lập trình viên Windows, và tất cả các kiểu dữ liệu (data type) sử dụng cho nhiều hàm và hệ thống con (subsystem).
+2. Một số hàm trong Windows.h để vọc vạch với Console
+Trong phần 1 này, mình sẽ nói về các hàm định hình màn hình Console:
+> Thay đổi Console Window Size
+Cú pháp:
+ 
+Tham số:
+•	hConsoleOutput là một HANDLE tới đối tượng, ở đây chính là STD_OUTPUT_HANDLE thông qua hàm GetStdHandle(STD_OUTPUT_HANDLE);
+•	bAbssolute nếu TRUE thì sẽ chỉ định góc trên bên trái làm góc tọa độ; nếu FALSE thì tọa độ sẽ liên quan đến góc tọa độ của cửa sổ hiện tại.
+•	lpConsoleWindow là một con trỏ cấu trúc SMALL_RECT chỉ định các góc trên bên trái và góc dưới bên phải cho cửa số mới. Cấu trúc SMALL_RECT:
+ 
+
+Cố định Top = 0, Left = 0, các bạn chỉ cần thay đổi Right và Bottom bằng 2 giá trị lần lượt là width và height cụ thể để thay đổi kích thước của màn hình console.
+Hoặc để cho nhanh gọn, các bạn có thể xây dựng một hàm như bên dưới:
+ 
+Kết quả:
+ 
+> Thay đổi Screen Buffer Size
+Trước tiên, Screen Bufer Size và Window Size là khác nhau. Nếu các bạn đã từng chơi các tựa game như Liên Quân Mobile, FreeFire, PUBG, … thì bạn có thể hiểu nôm na rằng: Screen Buffer Size là toàn bộ map, còn Windows Size là khung hình mà các bạn có thể nhìn được trên màn hình. Screen Buffer Size >= Window Size.
+Cú pháp:
+ 
+
+Tham số:
+•	hConsoleOutput xem ở trên.
+•	dwSize là cấu trúc COORD chỉ định kích thước mới của Screen Buffer. Cấu trúc COORD:
+ 
+Chỉ cần thay đổi giá trị X, Y trong COORD dwSize, là các bạn đã thay đổi được Screen Buffer Size của Console rồi đấy.
+Xây dựng hàm:
+ 
+ 
+
+
+
+
+
+
+
+Kết quả:
+ 
+Hình dưới, đã set Window Size và Screen Buffer Size bằng nhau, nên thanh cuộn (ScrollBar) biến mất.
+> Vô hiệu hóa thay đổi kích thước màn hình
+Ngay khi đã Set Window Size và Screen Buffer Size, người dùng vẫn có thể kéo mép phải và mép dưới Console để mở rộng hoặc thu nhỏ màn hình Console. Nếu bạn không muốn họ làm vậy, bạn có thể "cấm" bằng hàm SetWindowLong ():
+Cú pháp:
+ 
+Tham số:
+•	hWnd là một Handle tới window và gián tiếp đến các class trong window. Trong trường hợp này, hWnd = GetConsoleWindow ();
+•	nIndex ở đây ta truyền vào là GWL_STYLE: đặt một kiểu cửa số mới.
+•	dwNewLong chỉ định giá trị thay thế ở đây ta lấy giá trị hiện tại AND với NOT WS_SIZEBOX.
+Cụ thể: 
+ 
+Kết quả:
+> Vô hiệu hóa các nút Minimize, Maximize và Close
+Để làm điều này, ta sử dụng hàm DeleteMenu().
+Cú pháp:
+ 
+Tham số:
+•	hMenu là một handle đến menu bị thay đổi.
+•	uPosition là nút menu bị xóa SC_CLOSE, SC_MINIMIZE hoặc SC_MAXIMIZE.
+•	Cho biết cách diễn giải tham số uPosition, ở đây là MF_BYCOMMAND.
+Các bạn có thể tham khảo hàm sau:
+
+
+Kết quả:
+ 
+> Ẩn/Hiện thanh cuộn
+Khi Screen Buffer Size > Window Size thanh cuộn sẽ hiện lên. Nó đôi khi sẽ gây cản trở, các bạn có thể ẩn nó đi.
+Cú pháp:
+ 
+Tham số:
+•	hWnd xem ở trên
+•	wBar là là thanh cuộn muốn ẩn hoặc hiện gồm có SB_BOTH (cả hai), SB_HORZ (thanh cuộn ngang), SB_VERT (thanh cuộn dọc).
+•	bShow nếu TRUE thì hiện, FALSE thì ẩn.
+Hàm ẩn/hiện cả hai thanh cuộn:
+ 
+3. Thay đổi màu chữ
+Cú pháp:
+ Tham số:
+•	hConsoleOutput.
+•	wAttributes là mã màu bạn một đặt cho chữ.
+0 = Black      	8 = Gray
+1 = Blue       	9 = Light Blue
+2 = Green      	10=Light Green
+3 = Aqua       	11 = Light Aqua
+4 = Red        	12 = Light Red
+5 = Purple     	13 = Light Purple
+6 = Yellow     	14 = Light Yellow
+7 = White   	15 = Bright White
+Từ 16 màu trên, ta có thể sử dụng công thức i * 16 + j để tạo ra các màu mới, trong đó i là mã màu nền, j là mã màu chữ. Ví dụ: 2 = 0 * 16 + 2 suy ra wAttributes = 2 thì màu nền là Black, màu chữ là Green; 80 = 5 * 16 + 0 suy ra wAttributes = 80 thì màu nền là Purple, màu chữ là Black.
+Theo công thức đó, ta có thể xây dựng một hàm như sau:
+ 
+Demo:
+ 
+Nói chính xác hơn thì background_color là highlight_color mới đúng, nó không phải là màu nền cho cả console, mà chỉ những nơi có chữ.
+Để thay đổi màu nền cho cả console, các ta phải dùng câu lệnh system () 
+Di chuyển con trỏ đến vị trí (x; y)
+Trước tiên, Console lấy gốc tọa độ là góc trên bên trái, trục x nằm ngang và trục y nằm dọc. Nó gần giống hệ tọa độ trong toán học, tuy nhiên khác một điều là chiều dương trục y là chiều đi xuống và cả hai trục đều không có chiều âm.
+Cú pháp:
+ 
+Tham số:
+•	hConsoleOutput là một HANDLE 
+•	dwCursorPosition là một COORD chứa 2 giá trị X, Y là tọa độ của con trỏ mà bạn muốn di chuyển đến. Cấu trúc COORD xem trong phần 1.
+Để sử dụng cách đơn giản, các bạn xây dựng hàm sau:
+ 
+Khi GoTo đến một tọa độ và in gì đó, nếu tại đó đang có chữ thì nó sẽ in đè lên.
+Và vì nó không có tọa độ âm, nên nếu các bạn truyền vào giá trị âm cho x hoặc y, nó GoTo (0, 0). Demo: 
+ 
+4. Thay đổi Console Title 
+Mặc định file .exe cosole khi chạy Title sẽ là đường dẫn của file. Tuy nhiên ta hoàn toàn có thể thay đổi nó.
+Cú pháp:
+ 
+Tham số:
+•	lpConsoleTitle là một wchar_t có dạng L"string" hoặc TEXT("string").
+Demo:
+ 
+
+5. Ẩn/Hiện con trỏ
+Để ẩn/hiện con trỏ chuột, các bạn sử dụng hàm SetConsoleCursorInfo ().
+Cú pháp:
+ 
+Tham số:
+•	hConsoleOutput
+•	lpConsoleCursorInfo là một con trỏ có cấu trúc CONSOLE_CURSOR_INFO:
+ 
+Trong đó, dwSize là kích thước của con trỏ. bVisible nếu TRUE con trỏ sẽ được hiện, nếu FALSE con trỏ sẽ ẩn, ta chỉ cần quan tâm đến tham số này.
+Các bạn có thể viết một hàm như sau:
+ 
+6. Vô hiệu hóa Select (bôi đen text)
+Select thuộc chế độ Quick Edit, vậy để không cho người dùng kéo chuột để bôi đen chữ, thì ta Disable Quick Edit Mode thôi. 
+Sử dụng hàm SetConsoleMode ().
+Cú pháp:
+ 
+Tham số:
+•	hConsoleHandle ở đây là H ANDLE đến Input.
+•	dwMode để vô hiệu hóa Select là ~ENABLE_QUICK_EDIT_MODE (NOT của ENABLE là DISABLE).
+Xây dựng hàm như sau:
+ 
+
+
+
+Chương 5:Cách cài đặt chương trình ứng dụng và hướng dẫn sử dụng
+Link Githud:
+https://github.com/ninh3702/OOP
+I.  Cách cài đặt chương trình ứng dụng
+Cài đặt phần mềm để chạy chương trình ứng dụng như:
+•	DEV-C:  https://sourceforge.net/projects/orwelldevcpp/
+Video hướng dẫn cài đặt:
+https://www.youtube.com/watch?v=LKom13wmYtk&t=6s
+
+II.  Hướng dẫn sử dụng
+Đầu tiên, sau khi chạy chương trình sẽ hiện ra giao diện( Hình1) để chúng ta vào chương trình quản lý sinh viên của nhóm mình nhé!
+
+ 
+
+Xem thông tin nhóm:
+ 
+
+Chọn loại sinh viên cần thêm
+ 
+Nhập sinh viên hệ vừa học vừa làm
+ 
+
+
+Xuất thông tin sinh viên ra màn hình 
+ 
+
+Nhập vị trí cần thêm 
+ 
+
+ 
+Nhập thông tin sinh viên cần thêm
+ 
+
+Xuất thông tin sinh viên vừa nhập
+
+ 
+
+ Nhập vị trí cần xóa
+ 
+Xuất ra thông tin sau khi xóa
+
+ 
+
+Nhập vào vị trí cần sửa
+ 
+ 
+
+
+Xuất ra thông tin sau khi sửa
+ 
+
+
+Cơ chế ghi file
+ 
+PHẦN II: DỊCH TÀI LIỆU
+
+Chương 16: Classes
+16.2 Cơ bản về lớp
+Dưới đây là một bản tóm tắt rất ngắn gọn về các lớp:
+ • Một lớp là một kiểu do người dùng định nghĩa.
+ • Một lớp bao gồm một tập hợp các thành viên. 
+ • Các hàm thành viên có thể xác định ý nghĩa của việc khởi tạo , sao chép, di chuyển và dọn dẹp.
+ • Các thành viên được truy cập bằng cách sử dụng . cho các đối tượng và -> cho con trỏ.
+ • Một lớp là một không gian tên chứa các thành viên của nó.
+ • Các thành viên công khai cung cấp giao diện của lớp và các thành viên riêng cung cấp chi tiết đề cập.
+
+16.2.3 Kiểm soát truy cập
+Khai báo Ngày trong tiểu mục trước cung cấp một tập hợp các hàm để thao tác Ngày. Tuy nhiên, nó không chỉ rõ rằng những chức năng đó phải là những chức năng duy nhất phụ thuộc trực tiếp trên đại diện của Ngày và những người duy nhất truy cập trực tiếp vào các đối tượng của lớp Ngày. Hạn chế này có thể được thể hiện bằng cách sử dụng một lớp thay vì một cấu trúc:
+class Date {
+       int d, m, y;
+public:
+         void init(int dd, int mm, int yy);      // khởi tạo
+         void add_year(int n);                      // thêm n năm
+         void add_month(int n);                 // thêm n tháng
+         void add_day(int n);                   // thêm n ngày
+};
+Một cấu trúc đơn giản là một lớp có các thành viên là công khai theo mặc định (§16.2.4); thành viên các chức năng có thể được định nghĩa và sử dụng chính xác như trước đây. Ví dụ:
+Void Date::add_year(int n){
+         y += n;
+}
+
+16.2.4 Lớp và cấu trúc
+Xây dựng class X { ... };.Theo định nghĩa, struct là một lớp trong đó các thành viên được mặc định là public; đó là, struct S {/ * ... * /}; chỉ đơn giản là viết tắt của class S {public: / * ... * /};
+Hai định nghĩa này của S có thể thay thế cho nhau, mặc dù thông thường sẽ khôn ngoan hơn nếu bạn chỉ theo một kiểu.
+Theo mặc định, các thành viên của một lớp là riêng tư:
+     class Date1 
+{
+            int d, m, y;           // riêng tư theo mặc định
+     public:
+            Date1(int dd, int mm, int yy);
+            void add_year(int n);     // thêm n năm
+};
+Tuy nhiên, chúng ta cũng có thể sử dụng công cụ xác định quyền truy cập riêng tư: để nói các thành viên sau đây là riêng tư, cũng như công khai: nói các thành viên sau đây là công khai:
+struct Date2 {
+private:
+        int d, m, y;
+public:
+        Date2(int dd, int mm, int yy);
+        void add_year(int n);      // thêm n năm
+};
+
+16.2.7 Bộ khởi tạo trong lớp
+Khi chúng ta sử dụng một số hàm tạo, việc khởi tạo thành viên có thể trở nên lặp lại. Ví dụ:
+class Date {
+       int d, m, y;
+public:
+        Date(int, int, int);                     // ngày, tháng, năm
+        Date(int, int);                         // ngày, tháng, năm nay
+        Date(int);                             // ngày, hôm nay, tháng và năm
+        Date();                               // ngày mặc định: hôm nay
+        Date(const char∗);          // ngày tháng trong biểu diễn chuỗi
+       // ...
+};
+
+16.2.11 Quyền truy cập thành viên
+Một thành viên của lớp X có thể được truy cập bằng cách áp dụng . (dot) toán tử cho một đối tượng của lớp X hoặc bằng cách áp dụng toán tử -> (mũi tên) cho một con trỏ đến một đối tượng của lớp X. Ví dụ:
+struct X {
+        void f();
+         int m;
+};
+void user(X x, X∗ px){
+        m = 1;                     // error: không có m trong phạm vi
+        x.m = 1;                // OK
+        x−>m = 1;           // error: x không phải là con trỏ
+        px−>m = 1;        // OK
+        px.m = 1;         // error: px là một con trỏ
+}
+
+16.2.12 [tĩnh] Thành viên
+Một biến là một phần của một lớp, nhưng không phải là một phần của một đối tượng của lớp đó, được gọi là một thành viên tĩnh. Có chính xác một bản sao của thành viên tĩnh thay vì một bản sao cho mỗi đối tượng, như đối với các thành viên không tĩnh thông thường (§6.4.2). Tương tự, một hàm cần quyền truy cập vào các thành viên của một lớp, nhưng không cần được gọi cho một đối tượng cụ thể, được gọi là hàm thành viên tĩnh.
+Đây là một thiết kế lại bảo toàn ngữ nghĩa của các giá trị phương thức khởi tạo mặc định cho Date mà không gặp các vấn đề bắt nguồn từ việc phụ thuộc vào toàn cục:
+class Date {
+       int d, m, y;
+       static Date default_date;
+public:
+        Date(int dd =0, int mm =0, int yy =0);
+        static void set_default(int dd, int mm, int yy); // đặt default_date thành Date (dd, mm, yy)
+};
+
+16.2.13 Các loại thành viên
+template<typename T>
+class Tree {
+       using value_type = T;                                      // bí danh thành viên
+       enum Policy { rb, splay, treeps };                  // thành viên enum
+       class Node {                                                  // lớp thành viên
+              Node∗ right;
+              Node∗ left;
+              value_type value;
+public:
+        void f(Tree∗);
+};
+Node∗ top;
+public:
+         void g(const T&);
+};
+Một lớp thành viên (thường được gọi là lớp lồng nhau) có thể tham chiếu đến các kiểu và các thành viên tĩnh của lớp bao quanh nó. Nó chỉ có thể tham chiếu đến các thành viên không tĩnh khi nó được cung cấp một đối tượng của lớp bao quanh để tham chiếu đến. Để tránh đi vào sự phức tạp của cây nhị phân, tôi sử dụng các ví dụ về kiểu thuần túy kỹ thuật ‘‘ f () và g () ’’.
+
+16.3.3 Người vận hành quá tải
+Các ứng cử viên rõ ràng khác là:
+bool operator!=(Date, Date);           // bất bình đẳng
+bool operator<(Date, Date);           // ít hơn
+bool operator>(Date, Date);           // lớn hơn
+Date& operator++(Date& d) { return d.add_day(1); }                   // tăng Ngày lên một ngày
+Date& operator−−(Date& d) { return d.add_day(−1); }               // giảm Ngày xuống một ngày
+Date& operator+=(Date& d, int n) { return d.add_day(n); }       // thêm n ngày
+Date& operator−=(Date& d, int n) { return d.add_day(−n); }     // trừ n ngày
+Date operator+(Date d, int n) { return d+=n; }                             // thêm n ngày
+Date operator−(Date d, int n) { return d+=n; }                            // trừ n ngày
+ostream& operator<<(ostream&, Date d);                                  // đầu ra d
+istream& operator>>(istream&, Date& d);                               // đọc thành d
+Đối với Ngày, tôi đã muốn cung cấp + = và - = dưới dạng các hàm thành viên thay vì add_day (). Nếu tôi làm như vậy, tôi sẽ tuân theo một thành ngữ phổ biến (§3.2.1.1).
+
+Chương 17: Construction, Cleanup, Copy, and Move
+17.2 Cấu tạo và cấu trúc phá hủy
+Chúng ta có thể chỉ định cách khởi tạo một đối tượng của một lớp bằng cách định nghĩa một phương thức khởi tạo (§16.2.5, §17.3). Để bổ sung cho các hàm tạo, chúng ta có thể xác định một hàm hủy để đảm bảo '' dọn dẹp '' tại điểm phá hủy một đối tượng (ví dụ: khi nó vượt ra khỏi phạm vi). Một số kỹ thuật hiệu quả nhất để quản lý tài nguyên trong C ++ dựa trên các cặp hàm tạo / hủy. Vì vậy, các kỹ thuật khác dựa trên một cặp hành động, chẳng hạn như thực hiện / hoàn tác, bắt đầu / dừng, trước / sau, v.v. Ví dụ:
+struct Tracer {
+string mess;
+Tracer(const string& s) :mess{s} { clog << mess; }
+ ̃Tracer() {clog << " ̃" << mess; }
+};
+void f(const vector<int>& v){
+Tracer tr {"in f()\n"};
+for (auto x : v) {
+Tracer tr {string{"v loop "}+to<string>(x)+'\n'}; // §25.2.5.1
+// …
+}
+}
+Chúng ta có thể gọi:
+	f({2,3,5});
+Điều này sẽ in ra luồng ghi nhật ký:
+in_f()
+v loop 2
+ ̃v loop 2
+v loop 3
+ ̃v loop 3
+v loop 5
+ ̃v loop 5
+ ̃in_f()
+
+17.2.1 Cấu trúc và Bất biến
+Một thành viên có cùng tên với lớp của nó được gọi là một phương thức khởi tạo. Ví dụ:
+class Vector {
+public:
+Vector(int s);
+// ...
+};
+
+17.2.2 Hàm hủy và tài nguyên
+Hàm hủy thường dọn dẹp và giải phóng tài nguyên. Ví dụ:
+
+class Vector {
+public:
+Vector(int s) :elem{new double[s]}, sz{s} { }; 	// hàm tạo: thu được bộ nhớ
+ ̃Vector() { delete[] elem; } 				// hủy: giải phóng bộ nhớ
+// ...
+private:
+double∗ elem;    // elem trỏ đến một mảng nhân đôi sz
+int sz; 		    // sz không âm
+};
+Ví Dụ:
+Vector∗ f(int s)
+{
+Vector v1(s);
+// ...
+return new Vector(s+s);
+}
+void g(int ss)
+{
+Vector∗ p = f(ss);
+// ...
+delete p;
+Tại đây, Vectơ v1 bị phá hủy khi thoát khỏi f (). Ngoài ra, Vector được tạo trên cửa hàng miễn phí bởi f () sử dụng new sẽ bị hủy bởi lệnh xóa. Trong cả hai trường hợp, hàm hủy của Vector được gọi miễn phí (deallocate) bộ nhớ được cấp phát bởi hàm tạo.	
+
+17.2.5 Bộ hủy ảo
+Một hàm hủy có thể được khai báo là ảo và thường phải dành cho một lớp có hàm ảo. Ví dụ:
+class Shape {
+public:
+// …
+virtual void draw() = 0;
+virtual  ̃Shape();	
+};	
+class Circle {
+public:
+// …
+void draw();
+ ̃Circle();		 //ghi đè   ̃Shape ()
+// ...
+};
+
+17.3.2 Khởi tạo bằng cách sử dụng hàm tạo
+Nếu một hàm tạo được khai báo cho một lớp, một số hàm tạo sẽ được sử dụng cho mọi đối tượng. Đó là một lỗi khi cố gắng tạo một đối tượng mà không có bộ khởi tạo thích hợp theo yêu cầu của các hàm tạo. Ví dụ:
+struct X {
+X (int);
+};
+X x0; 		// lỗi: không có bộ khởi tạo
+X x1 {}; 	// error: bộ khởi tạo trống
+X x2 {2}; 	// OK
+X x3 {"hai"}; 	// error: loại bộ khởi tạo sai
+X x4 {1,2}; 	// error: sai số bộ khởi tạo
+X x5 {x4}; 	// OK: một phương thức khởi tạo sao chép được định nghĩa ngầm (§17.6)
+
+17.3.2.1 Khởi tạo bởi Constructors
+Sử dụng ký hiệu (), bạn có thể yêu cầu sử dụng một hàm tạo trong một lần khởi tạo. Nghĩa là, bạn có thể đảm bảo rằng đối với một lớp, bạn sẽ được khởi tạo bởi hàm tạo và không nhận được khởi tạo thành viên hoặc khởi tạo danh sách khởi tạo (§17.3.4) mà ký hiệu {} cũng cung cấp. Ví dụ:
+struct S1 {
+int a,b; 	// không khởi tạo 
+};
+struct S2 {
+int a,b;
+S2(int a = 0, int b = 0) : a(aa), b(bb) {} 	// khởi tạo
+};
+S1 x11(1,2); 				// error : không khởi tạo
+S1 x12 {1,2};				 // OK: khởi tạo thành viên
+S1 x13(1); 				// error : không khởi tạo
+S1 x14 {1};				 // OK: x14.b trở thành 0
+S2 x21(1,2);				 // OK: sử dụng hàm tạo
+S2 x22 {1,2}; 			// OK: sử dụng hàm tạo
+S2 x23(1);				 // OK: sử dụng hàm tạo và một đối số mặc định
+S2 x24 {1};				 // OK: sử dụng hàm tạo và một đối số mặc định
+
+17.3.3 Trình tạo mặc định
+Một hàm tạo có thể được gọi mà không cần đối số được gọi là một hàm tạo mặc định. Cấu trúc mặc định rất phổ biến. Ví dụ:
+class Vector {
+public:
+         	Vector();    	// hàm tạo mặc định: không có phần tử
+         	// ...
+};
+Một hàm tạo mặc định được sử dụng nếu không có đối số nào được chỉ định hoặc nếu danh sách bộ khởi tạo trống được cung cấp:
+Vector v1; 	// OK
+Vector v2 {}; 	// OK
+
+17.4.1 Khởi tạo thành viên
+Hãy xem xét một lớp học có thể được sử dụng để giữ thông tin cho một tổ chức nhỏ:
+class Club {
+string name;
+vector<string> members;
+vector<string> officers;
+Date founded;
+// …
+Club(const string& n, Date fd);
+};
+
+17.4.4 Bộ khởi tạo trong lớp
+Chúng ta có thể chỉ định một bộ khởi tạo cho một thành viên dữ liệu không tĩnh trong khai báo lớp. Ví dụ:
+class A {
+public:
+int a {7};
+int b = 77;
+};
+
+17.4.5 Khởi tạo thành viên tĩnh
+Một thành viên lớp tĩnh được cấp phát tĩnh chứ không phải là một phần của mỗi đối tượng của lớp. Nói chung, khai báo thành viên tĩnh hoạt động như một khai báo cho một định nghĩa bên ngoài lớp. Ví dụ:
+class Node {
+// …
+static int node_count; 		// khai báo
+};
+int Node::node_count = 0; 		// định nghĩa
+
+17.5.1 Sao chép
+Sao chép cho một lớp X được xác định bằng hai phép toán:
+• Sao chép hàm tạo: X (const X &)
+• Sao chép phép gán: X & operator = (const X &)
+
+17.5.2 Di chuyển
+Cách truyền thống để nhận giá trị từ a đến b là sao chép nó. Đối với một số nguyên trong bản ghi nhớ của máy tính, đó chỉ là điều duy nhất có ý nghĩa: đó là những gì phần cứng có thể thực hiện với một lệnh duy nhất. Tuy nhiên, từ quan điểm chung và logic thì không phải như vậy. Hãy xem xét việc triển khai rõ ràng swap () trao đổi giá trị của hai đối tượng:
+template<class T>
+void swap(T& a, T& b)
+{
+       const T tmp = a;      // đưa một bản sao của a vào tmp
+       a = b;                      // đặt một bản sao của b vào a
+       b = tmp;                 // đặt một bản sao của tmp vào b
+};
+
+
+17.6 Tạo hoạt động mặc định
+Việc viết các hoạt động thông thường, chẳng hạn như một bản sao và một trình hủy, có thể tẻ nhạt và dễ xảy ra lỗi, vì vậy trình biên dịch có thể tạo chúng cho chúng tôi khi cần thiết. Theo mặc định, một lớp cung cấp:
+• Một hàm tạo mặc định: X ()
+• Hàm tạo bản sao: X (const X &)
+• Phép gán bản sao: X & operator = (const X &)
+• Một hàm tạo di chuyển: X (X &&)
+• Phép chuyển nhượng: X & operator = (X &&)
+• Một hàm hủy: ̃X ()
+
+17.6.3.1 Trình tạo mặc định
+Xem xét:
+struct X {
+        X(int);    // yêu cầu một int để khởi tạo một X
+ };
+Bằng cách khai báo một phương thức khởi tạo yêu cầu một đối số nguyên, lập trình viên tuyên bố rõ ràng rằng người dùng cần cung cấp một int để khởi tạo X. Nếu chúng tôi cho phép tạo phương thức khởi tạo mặc định, quy tắc đơn giản đó sẽ bị vi phạm. Chúng ta có:
+X a {1};      // OK
+X b {};        // error: không có hàm tạo mặc định
+Nếu chúng ta cũng muốn có hàm tạo mặc định, chúng ta có thể xác định một hoặc khai báo rằng chúng ta muốn trình biên dịch có địa chỉ mặc định. Ví dụ:
+struct Y {
+        string s;
+        int n;
+        Y(const string& s);    // khởi tạo Y bằng một chuỗi
+        Y() = default;             // cho phép khởi tạo mặc định với nghĩa mặc định
+};
+Hàm khởi tạo mặc định mặc định (tức là được tạo) mặc định xây dựng từng thành viên. Ở đây, Y () đặt s thành chuỗi trống. '' Khởi tạo mặc định '' của một thành viên tích hợp khiến thành viên đó không được khởi tạo.
+
+Chương 18: Nạp Chồng Toán Tử
+18.1 Giới thiệu
+Mọi lĩnh vực kỹ thuật - và hầu hết các lĩnh vực phi kỹ thuật - đều phát triển các ký hiệu viết tắt thông thường để thuận tiện cho việc trình bày và thảo luận liên quan đến các khái niệm được sử dụng thường xuyên.
+Thật khó để đánh giá quá cao tầm quan trọng của ký hiệu súc tích đối với các phép toán thông thường.
+Giống như hầu hết các ngôn ngữ khác, C ++ hỗ trợ một tập hợp các toán tử cho các kiểu tích hợp của nó. Tuy nhiên, hầu hết các khái niệm mà các toán tử được sử dụng thông thường không phải là các kiểu tích hợp sẵn trong C ++, vì vậy chúng phải. Ví dụ:
+class complex {
+      double re, im;
+      public:
+      complex(double r, double i) :re{r}, im{i} { }
+      complex operator+(complex);
+      complex operator∗(complex);
+};
+18.2 Các chức năng của nhà điều hành
+Các hàm xác định ý nghĩa cho các toán tử sau (§10.3) có thể được khai báo:
++	−	∗	/	%	ˆ	&
+|	˜	!	=	<	>	+=
+−=	∗=	/=	%=	ˆ=	&=	|=
+<<	>>	>>=	<<=	==	!=	<=
+>=	&&	||	++	−−	−>∗	,
+−>	[]	()	new	new[]	delete	delete[]
+Người dùng không thể xác định các toán tử sau:
+::   giải quyết phạm vi lựa
+.    chọn thành viên 
+.∗  lựa chọn thành viên thông qua con trỏ đến thành viên 
+18.2.1 Toán tử nhị phân và đơn nguyên
+Một toán tử nhị phân có thể được định nghĩa bởi một hàm thành viên không tĩnh nhận một đối số hoặc một hàm không phải là bộ nhớ nhận hai đối số. Đối với bất kỳ toán tử nhị phân nào @, aa @ bb có thể được hiểu là aa.operator @ (bb) hoặc toán tử @ (aa, bb). Nếu cả hai đều được xác định, giải pháp quá tải sẽ xác định cách giải thích nào, nếu có, được sử dụng.
+Một toán tử chỉ có thể được khai báo cho cú pháp được định nghĩa cho nó trong ngữ pháp
+18.2.2 Ý nghĩa được xác định trước cho toán tử
+Ý nghĩa của một số toán tử dựng sẵn được định nghĩa tương đương với một số kết hợp của các toán tử khác trên cùng các đối số. Các quan hệ như vậy không giữ cho các toán tử do người dùng xác định trừ khi người dùng định nghĩa chúng.
+18.2.3 Các toán tử và các loại do người dùng xác định
+Một hàm toán tử phải là một thành viên hoặc có ít nhất một đối số của kiểu do người dùng xác định. Quy tắc này đảm bảo rằng người dùng không thể thay đổi ý nghĩa của một biểu thức trừ khi biểu thức chứa một đối tượng thuộc loại do người dùng xác định. Đặc biệt, không thể định nghĩa một hàm toán tử hoạt động độc quyền trên con trỏ.
+18.2.4 Chuyển đối tượng
+Đối với các đối số, chúng ta có hai lựa chọn chính 
+- Giá trị chuyển tiếp
+- Tham chiếu qua
+Đối với các đối tượng nhỏ, chẳng hạn như từ một đến bốn từ, gọi theo giá trị thường là một phương án thay thế khả thi và thường là phương án mang lại hiệu suất tốt nhất. Các đối tượng lớn hơn, ta chuyển qua tham chiếu. Đặc biệt, chúng tôi sử dụng const các tham chiếu để truyền các đối tượng lớn không có nghĩa là được sửa đổi bởi hàm được gọi
+18.2.5 Các toán tử trong Không gian tên
+Toán tử hoặc là một thành viên của một lớp hoặc được định nghĩa trong một số không gian tên. Các toán tử được định nghĩa trong không gian tên có thể được tìm thấy dựa trên kiểu toán hạng của chúng cũng như các hàm có thể được tìm thấy dựa trên kiểu đối số của chúng.
+Lưu ý rằng trong tra cứu toán tử không có ưu tiên nào dành cho các thành viên hơn là những người không phải là thành viên. Điều này khác với tra cứu các hàm được đặt tên . Việc thiếu ẩn các toán tử đảm bảo rằng các toán tử tích hợp không bao giờ không thể truy cập được và người dùng có thể cung cấp các ý nghĩa mới cho một toán tử mà không cần sửa đổi các khai báo lớp hiện có
+18.3 Một loại số phức         
+- Toán tử thành viên và không phải thành viên
+- Số học chế độ hỗn hợp
+- Chuyển đổi - Chuyển đổi toán hạng
+- Hằng
+- Hàm Accessor
+- Hàm trợ giúp
+18.4 Chuyển đổi loại
+Việc chuyển đổi kiểu có thể được thực hiện bằng
+- Một hàm tạo nhận một đối số duy nhất
+- Toán tử chuyển đổi
+18.4.1 Chuyển đổi toán tử      
+Sử dụng một hàm tạo lấy một đối số duy nhất để chỉ định chuyển đổi kiểu là thuận tiện nhưng có những tác động có thể không mong muốn. Ngoài ra, một hàm tạo không thể chỉ định chuyển đổi ngầm định từ kiểu do người dùng xác định sang kiểu cài sẵn (vì kiểu cài sẵn không phải là lớp) hoặc một chuyển đổi từ một lớp mới sang một lớp đã xác định trước đó (mà không sửa đổi khai báo cho lớp cũ).
+Các hàm chuyển đổi dường như đặc biệt hữu ích để xử lý cấu trúc dữ liệu khi việc đọc (được thực thi bởi toán tử chuyển đổi) là nhỏ, trong khi việc gán và khởi tạo rõ ràng là ít tầm thường hơn.
+18.4.2 Chuyển đổi toán tử Explicit        
+Các toán tử chuyển đổi có xu hướng được xác định để chúng có thể được sử dụng ở mọi nơi. Tuy nhiên, có thể khai báo toán tử chuyển đổi một cách rõ ràng và nó chỉ áp dụng cho việc khởi tạo trực tiếp, trong đó một phương thức khởi tạo tường minh tương đương sẽ được sử dụng.
+18.4.3 Khả Nghi
+Các quy tắc chuyển đổi không phải là quy tắc đơn giản nhất để thực hiện, cũng không phải là tài liệu đơn giản nhất, cũng không phải là quy tắc chung nhất có thể được nghĩ ra. Tuy nhiên, chúng an toàn hơn đáng kể và độ phân giải kết quả thường ít gây ngạc nhiên hơn so với các giải pháp thay thế. Việc giải quyết sự mơ hồ theo cách thủ công sẽ dễ dàng hơn nhiều so với việc tìm ra lỗi do chuyển đổi không đáng ngờ.
+Sự khăng khăng về phân tích từ dưới lên nghiêm ngặt ngụ ý rằng kiểu trả về không được sử dụng trong giải quyết quá tải. Lý do cho sự lựa chọn thiết kế này một phần là phân tích từ dưới lên nghiêm ngặt dễ hiểu hơn và một phần là nó không được coi là công việc của trình biên dịch để quyết định độ chính xác mà lập trình viên có thể muốn bổ sung.
+
+Chương 19: Toán Tử Đặc Biệt
+19.1 Giới thiệu
+Nạp chồng không chỉ dành cho các phép toán số học và logic. Trên thực tế, các toán tử đóng vai trò quan trọng trong việc thiết kế các vùng chứa (ví dụ:vectơ và bản đồ), '' con trỏ thông minh '' (ví dụ:unique_ptr và shared_pt), trình vòng lặp và các lớp khác liên quan đến quản lý tài nguyên.
+19.2 Các toán tử đặc biệt
+Các toán tử :  []	()	−>	++	−−	new	delete
+19.2.1 Toán tử chỉ số con
+Một hàm toán tử [] có thể được sử dụng để cung cấp ý nghĩa cho các chỉ số con cho các đối tượng lớp. Đối số thứ hai (chỉ số con) của một hàm toán tử [] có thể thuộc bất kỳ loại nào. Điều này giúp bạn có thể xác định vectơ, mảng kết hợp, v.v.
+19.2.2 Gọi hàm
+Lời gọi hàm, nghĩa là, biểu thức ký hiệu (danh sách biểu thức), có thể được hiểu như một toán hạng nhị phân với biểu thức là toán hạng bên trái và danh sách biểu thức là toán hạng bên phải. Toán tử cuộc gọi, (), có thể được nạp chồng theo cách giống như các toán tử khác có thể. Danh sách đối số cho operator () () được đánh giá và kiểm tra theo quy tắc truyền đối số thông thường. Việc ghi đè toán tử cuộc gọi hàm dường như hữu ích chủ yếu để xác định các kiểu chỉ có một thao tác duy nhất và cho các kiểu mà một thao tác chiếm ưu thế. Gọi toán tử còn được biết là ứng dụng toán tử.
+19.2.3 Toán tử tham chiếu
+Toán tử tham chiếu, -> (còn được gọi là mũi tên toán tử), có thể được định nghĩa là toán tử hậu tố một ngôi. Toán tử -> phải là một hàm thành viên không tĩnh. Nếu được sử dụng, kiểu trả về của nó phải là một con trỏ hoặc một đối tượng của một lớp mà bạn có thể áp dụng ->. Mặc dù có sự giống nhau giữa -> và. (dấu chấm), nhưng không có cách nạp chồng toán tử .(dấu chấm)
+19.2.4 Tăng và Giảm
+Khi mọi người phát minh ra '' con trỏ thông minh '', họ thường quyết định cung cấp toán tử tăng dần ++ và toán tử giảm dần −− để phản ánh việc sử dụng của các toán tử này cho các kiểu cài sẵn. Các toán tử tăng và giảm là duy nhất trong số các toán tử C ++ ở chỗ chúng có thể được sử dụng như cả tiền tố và hậu tốToán tử tăng trước có thể trả về một tham chiếu đến đối tượng của nó. Toán tử tăng sau phải tạo một đối tượng mới để trả về
+19.2.5 Phân bổ và Giao dịch
+Toán tử new có được bộ nhớ của nó bằng cách gọi một toán tử new (). Tương tự, toán tử delete giải phóng bộ nhớ của nó bằng cách gọi một toán tử delete (). Người dùng có thể định nghĩa lại toán tử toàn cục new () và toán tử delete () hoặc định nghĩa toán tử new () và toán tử delete () cho một lớp cụ thể.
+Toán tử thành viên new () s và toán tử delete () s hoàn toàn là các thành viên tĩnh. Do đó, họ không có con trỏ này và không sửa đổi một đối tượng. Chúng cung cấp bộ nhớ mà một phương thức khởi tạo có thể khởi tạo và một phương thức hủy có thể dọn dẹp.
+19.2.6 Chữ viết do người dùng định nghĩa
+Có bốn loại ký tự có thể được thêm hậu tố để tạo thành một ký tự do người dùng xác định: Một ký tự số nguyên, Một ký tự dấu phẩy động, Một ký tự chuỗi, Một ký tự theo nghĩa đen. Lý do của việc yêu cầu số lượng ký tự là nếu chúng ta muốn có '' một loại chuỗi khác '', chúng ta hầu như luôn muốn biết số lượng ký tự.
+Một toán tử theo nghĩa đen chỉ cần một const char∗ đối số (và không có kích thước) có thể được áp dụng cho các ký tự số nguyên và dấu phẩy động. MỘT toán tử mẫu là một toán tử theo nghĩa đen nhận đối số của nó như một gói tham số mẫu, chứ không phải là một đối số hàm
+19.3 Một lớp chuỗi
+Lớp chuỗi tương đối đơn giản được trình bày trong phần này minh họa một số kỹ thuật hữu ích cho việc thiết kế và triển khai các lớp bằng cách sử dụng các toán tử được định nghĩa theo quy ước.
+19.3.1 Các hoạt động cần thiết
+Lớp string cung cấp tập hợp thông thường của các hàm tạo, một hàm hủy và các hoạt động gán
+19.3.2 Quyền truy cập vào các ký tự
+Việc thiết kế các toán tử truy cập cho một chuỗi là một chủ đề khó vì truy cập lý tưởng là bằng ký hiệu thông thường (nghĩa là sử dụng []), hiệu quả tối đa và đã kiểm tra phạm vi. Nhưng bạn không thể có tất cả các thuộc tính này cùng một lúc.
+19.3.3 Đại diện
+Đại diện cho String đã được chọn để đáp ứng ba mục tiêu:
+- Để dễ dàng chuyển đổi một chuỗi kiểu C (ví dụ: một chuỗi ký tự) thành Stringvà cho phép dễ dàng truy cập vào các ký tự của một String như một chuỗi kiểu C
+- Để giảm thiểu việc sử dụng cửa hàng miễn phí
+- Để thêm ký tự
+19.3.4 Hàm thành viên
+Tất cả các String các thành viên cẩn thận không sửa đổi một đại diện mới trước khi họ chắc chắn rằng một đại diện mới có thể được đưa vào. Đặc biệt, họ không delete cho đến sau khi có thể New các hoạt động đã được thực hiện. Trên thực tế String các thành viên cung cấp bảo đảm ngoại lệ mạnh mẽ
+19.3.5 Chức năng của người trợ giúp
+Để hoàn thành lớp String, Tôi cung cấp một tập hợp các chức năng hữu ích, luồng I / O, hỗ trợ cho phạm vi vòng lặp, so sánh và nối.
+ostream& operator<<(ostream& os, const String& s){
+return os << s.c_str();
+}
+istream& operator>>(istream& is, String& s){
+s = "";	
+is>>ws;
+char ch = ' ';
+while(is.get(ch) && !isspace(ch))
+s += ch;
+return is;
+}
+19.3.6 Sử dụng chuỗi của chúng tôi
+Chương trình chính chỉ đơn giản thực hiện String toán tử một chút:
+int main(){
+String s ("abcdefghij");
+cout << s << '\n';
+s += 'k';
+s += 'l';
+s += 'm';
+s += 'n';
+cout << s << '\n';
+String s2 = "Hell";
+s2 += " and high water";
+cout << s2 << '\n';
+String s3 = "qwerty";
+s3 = s3;
+String s4 ="the quick brown fox jumped over the lazy dog"; s4 = s4;
+cout << s3 << " " << s4 << "\n";
+cout << s + ". " + s3 + String(". ") + "Horsefeathers\n";
+String buf;
+while (cin>>buf && buf!="quit")
+cout << buf << " " << buf.siz e() << " " << buf.capacity() << '\n';
+}
+19.4 Hàm bạn
+Một khai báo hàm thành viên bình thường chỉ định ba điều khác biệt về mặt logic:
+Hàm có thể truy cập phần riêng của khai báo lớp.
+Hàm thuộc phạm vi của lớp.
+Hàm phải được gọi trên một đối tượng (có cái này con trỏ).
+19.4.1 Tìm bạn
+Một người bạn trước đây phải là bao quanh một cách ẩn lớp đang khai báo nó là một friend. Các phạm vi bên ngoài phạm vi không gian tên bao quanh trong cùng không được coi là tên được khai báo đầu tiên là friend. Một hàm friend có thể được tìm thấy thông qua các đối số của nó ngay cả khi nó không được khai báo trong phạm vi kèm theo ngay lập tức
+19.4.2 Bạn bè và thành viên
+Khi nào chúng ta nên sử dụng hàm kết bạn và khi nào thì hàm thành viên là lựa chọn tốt hơn để chỉ định một hoạt động? Đầu tiên, chúng tôi cố gắng giảm thiểu số lượng hàm truy cập vào biểu diễn của một lớp và cố gắng làm cho tập hợp các hàm truy cập phù hợp nhất có thể. Do đó, câu hỏi đầu tiên không phải là '' Có nên là thành viên,tĩnh thành viên, hay một người bạn? " Một số hoạt động phải là thành viên - ví dụ, hàm tạo, hàm hủy và hàm ảo - nhưng thường có một sự lựa chọn. Bởi vì tên thành viên là cục bộ của lớp, một hàm yêu cầu quyền truy cập trực tiếp vào biểu diễn phải là một thành viên trừ khi có lý do cụ thể khiến nó không phải là một thành viên.
+
+
+Chương 20: Derived Classes
+
+20.2 Các lớp có nguồn gốc
+Cân nhắc xây dựng một chương trình giao dịch với những người được một công ty tuyển dụng. Một chương trình như vậy có thể có cấu trúc dữ liệu như sau:
+struct Employee {
+       string first_name , family_name;
+       char middle_initial;
+       Date hiring_date;
+       short depar tment;
+      // ...
+};
+Sử dụng một lớp làm cơ sở tương đương với việc xác định một đối tượng (không tên) của lớp đó. Do đó, một lớp phải được xác định để được sử dụng làm cơ sở (§8.2.2):
+class Employee;    // chỉ khai báo, không có định nghĩa
+class Manager : public Employee { // error: Nhân viên không được xác định
+ // ...
+};
+20.2.1 Chức năng thành viên
+Các cấu trúc dữ liệu đơn giản, chẳng hạn như Nhân viên và Người quản lý, thực sự không thú vị và thường không đặc biệt hữu ích. Chúng ta cần cung cấp một kiểu thích hợp với một tập hợp các thao tác phù hợp và chúng ta cần làm như vậy mà không bị ràng buộc vào các chi tiết của một biểu diễn cụ thể. Ví dụ:
+class Employee {
+public:
+   void print() const;
+   string full_name() const { return first_name + ' ' + middle_initial + ' ' + family_name; }
+   // ...
+private:
+        string first_name , family_name;
+        char middle_initial;
+        // ...
+};
+class Manager : public Employee {
+public:
+       void print() const;
+       // ...
+};
+
+20.3 Phân cấp lớp
+Bản thân một lớp dẫn xuất có thể là một lớp cơ sở. Ví dụ:
+class Employee { /* ... */ };
+class Manager : public Employee { /* ... */ };
+class Director : public Manager { /* ... */ };
+
+20.3.1 Trường loại
+Trước tiên, chúng ta hãy kiểm tra giải pháp trường loại đơn giản để xem tại sao nó thường được tránh tốt nhất. Ví dụ về người quản lý / nhân viên có thể được định nghĩa lại như sau:
+struct Employee {
+        enum Empl_type { man, empl };
+        Empl_type type;
+        Employee() : type{empl} { }
+        string first_name , family_name;
+        char middle_initial;
+        Date hiring_date;
+        short depar tment;
+        // ...
+};
+struct Manager : public Employee {
+        Manager() { type = man; }
+        list<Employee∗> group; // people managed
+        short level;
+        // ...
+};
+20.3.2 Chức năng ảo
+Các hàm ảo khắc phục các vấn đề với giải pháp trường kiểu bằng cách cho phép lập trình viên khai báo các hàm trong lớp cơ sở có thể được định nghĩa lại trong mỗi lớp dẫn xuất. Trình biên dịch và trình liên kết sẽ đảm bảo sự tương ứng chính xác giữa các đối tượng và các chức năng được áp dụng cho chúng. Ví dụ:
+class Employee {
+public:
+       Employee(const string& name, int dept);
+       virtual void print() const;
+       // ...
+private:
+        string first_name , family_name;
+        short depar tment;
+        // ...
+};
+
+20.3.5.1 Trình tạo kế thừa
+Giả sử tôi muốn một vectơ giống như  std :: vecto, nhưng có kiểm tra phạm vi được đảm bảo. Tôi có thể thử điều này:
+template<class T>
+struct Vector : std::vector<T> {
+T& operator[](size_type i) { check(i); return this−>elem(i); }
+const T& operator[](size_type i) const { check(i); return this−>elem(i); }
+void check(siz e_type i) { if (this−>size()<i) throw rang e_error{"Vector::check() failed"}; }
+};
+
+20.4 Các lớp trừu tượng
+Nhiều lớp giống với lớp Employee ở chỗ chúng hữu ích như chính chúng, làm giao diện cho các lớp dẫn xuất và là một phần của việc triển khai các lớp dẫn xuất. Đối với các lớp như vậy, các kỹ thuật được mô tả trong §20.3.2 là đủ. Tuy nhiên, không phải tất cả các lớp đều tuân theo khuôn mẫu đó. Một số lớp, chẳng hạn như một lớp Shape, đại diện cho các khái niệm trừu tượng mà đối tượng không thể tồn tại. Shape chỉ có ý nghĩa như là cơ sở của một số lớp bắt nguồn từ nó. Điều này có thể được thấy từ thực tế là không thể cung cấp các định nghĩa hợp lý cho các chức năng ảo của nó:
+class Shape {
+public:
+virtual void rotate(int) { throw runtime_error{"Shape::rotate"}; }    // không phù hợp
+virtual void draw() const { throw runtime_error{"Shape::draw"}; }
+// ...
+};
+
+20.5 Kiểm soát truy cập
+Thành viên của một lớp có thể là riêng tư, được bảo vệ hoặc công khai:
+•	Nếu nó là private, tên của nó chỉ có thể được sử dụng bởi các hàm thành viên và bạn bè của lớp mà nó được khai báo.
+•	Nếu nó là protected, tên của nó chỉ có thể được sử dụng bởi các hàm thành viên và bạn bè của lớp mà nó được khai báo và bởi các hàm thành viên và bạn bè của các lớp dẫn xuất từ lớp này (xem §19.4).
+•	Nếu nó là public, tên của nó có thể được sử dụng bởi bất kỳ chức năng nào.
+Các định nghĩa của các chức năng công cộng khá đơn giản:
+template<class T>
+void List<T>::insert(T val){
+       Link∗ lnk = get_free();
+       lnk−>val = val;
+       lnk−>next = head;
+       head = lnk;
+}
+template<class T>
+T List<T>::g et()
+{
+        if (head == 0)
+        throw Underflow{}; // Underflow là lớp ngoại lệ của tôi
+       Link∗ p= head;
+       head = p−>next;
+       p−>next = free;
+       free = p;
+       return p−>val;
+}
+
+20.5.2 Quyền truy cập vào các lớp cơ sở
+Giống như một thành viên, một lớp cơ sở có thể được khai báo là riêng tư, được bảo vệ hoặc công khai. Ví dụ:
+class X : public B { /* ... */ };
+class Y : protected B { /* ... */ };
+class Z : private B { /* ... */ };
+Có thể bỏ qua thông số truy cập cho một lớp cơ sở. Trong trường hợp đó, cơ sở mặc định là cơ sở riêng cho một lớp và cơ sở công khai cho một cấu trúc. Ví dụ:
+class XX : B { /* ... */ }; // B is a private base
+struct YY : B { /* ... */ }; // B is a public base
+
+20.6.1 Con trỏ đến các thành viên hàm
+Nhiều lớp cung cấp các giao diện đơn giản, rất chung chung nhằm mục đích được gọi theo các cách khác nhau. Ví dụ: nhiều giao diện người dùng ‘‘ hướng đối tượng ’’ xác định một tập hợp các yêu cầu mà mọi đối tượng được đại diện trên màn hình phải được chuẩn bị để đáp ứng. Ngoài ra, những yêu cầu đó có thể được trình bày trực tiếp hoặc gián tiếp từ các chương trình. Hãy xem xét một biến thể đơn giản của ý tưởng này:
+class Std_interface {
+public:
+       virtual void start() = 0;
+       virtual void suspend() = 0;
+       virtual void resume() = 0;
+       virtual void quit() = 0;
+       virtual void full_size() = 0;
+       virtual void small() = 0;
+       virtual  ̃Std_interface() {}
+};
+20.6.3 Các thành viên cơ sở và có nguồn gốc
+Một lớp dẫn xuất có ít nhất các thành viên mà nó kế thừa từ các lớp cơ sở của nó. Thường thì nó có nhiều hơn. Điều này ngụ ý rằng chúng ta có thể chỉ định một cách an toàn một con trỏ cho một thành viên của lớp cơ sở cho một con trỏ tới một thành viên của một lớp dẫn xuất, nhưng không phải ngược lại. Tính chất này thường được gọi là độ tương phản. Ví dụ:
+class Text : public Std_interface {
+public:
+       void start();
+       void suspend();
+       // ...
+       virtual void print();
+private:
+       vector s;
+};
+void (Std_interface::∗ pmi)() = &Text::print;      // error
+void (Text::∗pmt)() = &Std_interface::start;      // OK
+
+Chương 21: CẤU TRÚC PHÂN CẤP LỚP
+
+21.2 Thiết kế cấu trúc phân cấp lớp
+User 		Ival_box
+									    application
+			(via”system”)  set_value()			get_value()
+Cách tiếp cận chung là xây dựng một '' hệ thống giao diện người dùng ảo '' để ứng dụng sử dụng. Hệ thống này cung cấp một số dịch vụ được cung cấp bởi các hệ thống giao diện người dùng hiện có. Nó có thể được thực hiện trên nhiều hệ thống khác nhau để đảm bảo tính di động của mã ứng dụng. Đương nhiên, có những cách khác để cách ly một ứng dụng khỏi hệ thống giao diện người dùng. 
+
+21.2.1 Kế thừa triển khai
+Giải pháp đầu tiên là một cấu trúc phân cấp lớp sử dụng kế thừa triển khai (như thường thấy trong các chương trình cũ hơn). Việc triển khai mặc định của các chức năng là khá cẩu thả và được cung cấp ở đây chủ yếu để minh họa ngữ nghĩa dự định.
+
+21.2.1.1 Phê bình
+Trong thực tế, chúng ta khó có thể tìm thấy một sơ đồ tiền tố hai chữ cái đơn giản, mạch lạc. Có nhiều khả năng hơn, các thư viện từ các đơn vị cung cấp khác nhau sẽ ở các không gian tên khác nhau và sử dụng các thuật ngữ khác nhau cho các khái niệm tương tự.
+
+21.2.2Kế thừa giao diện
+[1] Hệ thống giao diện người dùng phải là một chi tiết triển khai được ẩn với những người dùng không muốn biết về nó.
+[2] Lớp Ival_box không được chứa dữ liệu.
+[3] Không cần biên dịch lại mã sử dụng họ lớp Ival_box sau khi thay đổi hệ thống giao diện người dùng.
+[4] Ival_boxes cho các hệ thống giao diện khác nhau sẽ có thể cùng tồn tại trong chương trình của chúng tôi.
+
+21.2.3 Triển khai Thay thế
+Thiết kế này sạch hơn và dễ bảo trì hơn thiết kế truyền thống - và không kém phần hiệu quả. Thông thường, chúng ta có thể làm tốt hơn bằng cách sử dụng các lớp cụ thể hơn trong hệ thống phân cấp triển khai. Sự cải tiến này trở nên đáng kể khi - không có gì lạ - những phần tóm tắt của chúng tôi không quá khác biệt so với những phần được cung cấp bởi hệ thống được sử dụng để triển khai.
+
+21.2.3.1 Phê bình
+Sử dụng các lớp trừu tượng để hỗ trợ kế thừa giao diện.
+Sử dụng các lớp cơ sở với việc triển khai các hàm ảo để hỗ trợ kế thừa thực thi
+
+21.2.4 Bản địa hóa Tạo đối tượng
+Hầu hết một ứng dụng có thể được viết bằng cách sử dụng Ival_box giao diện. Hơn nữa, nếu các giao diện có nguồn gốc phát triển để cung cấp nhiều tiện ích hơn so vớiIval_box, thì hầu hết một ứng dụng có thể được viết bằng cách sử dụng Ival_box, Ival_slider, v.v., giao diện. Tuy nhiên, việc tạo các đối tượng phải được thực hiện bằng cách sử dụng các tên dành riêng cho việc triển khai nhưCW_ival_dial và BB_flashing_ival_slider. Đối với mỗi giao diện từ Ival_box họ lớp mà người dùng nên biết, lớpIval_maker cung cấp một hàm tạo một đối tượng. Một lớp như vậy đôi khi được gọi là xưởng sản xuất và các chức năng của nó (hơi gây hiểu lầm) đôi khi được gọi là các nhà xây dựng ảo.
+
+21.3 Thừa kế nhiều
+Giao diện được chia sẻ: dẫn đến việc sao chép mã ít hơn bằng cách sử dụng các lớp và làm cho mã đó đồng nhất hơn. Điều này thường được gọi làđa hình thời gian chạy hoặc kế thừa giao diện.
+Triển khai được chia sẻ: dẫn đến ít mã hơn và mã triển khai thống nhất hơn. Điều này thường được gọi làkế thừa thực hiện
+
+21.3.2Nhiều lớp triển khai
+Việc sử dụng đa kế thừa để '' gắn kết '' hai lớp không liên quan với nhau như một phần của việc triển khai lớp thứ ba là thô thiển, hiệu quả và tương đối quan trọng, nhưng không thú vị lắm. Về cơ bản, nó giúp lập trình viên không phải viết nhiều hàm chuyển tiếp (để bù đắp cho thực tế là chúng ta chỉ có thể ghi đè các hàm được định nghĩa trong base). Kỹ thuật này không ảnh hưởng đáng kể đến thiết kế tổng thể của một chương trình và đôi khi có thể mâu thuẫn với mong muốn giữ các chi tiết triển khai được ẩn. Tuy nhiên, một kỹ thuật không nhất thiết phải thông minh để trở nên hữu ích.
+
+21.3.3 Độ phân giải mơ hồ
+Hai lớp cơ sở có thể có: 
+ 
+class Satellite {
+public:
+virtual Debug_info get_debug();   ...
+};
+class Displayed {
+public:
+virtual Debug_info get_debug();   ...
+};
+Một hàm được khai báo trong một lớp dẫn xuất sẽ ghi đè tất cả các các hàm cùng tên và nhập vào các lớp cơ sở của nó. Thông thường, đó chính xác là điều phải làm vì nói chung là một ý tưởng tồi nếu sử dụng cùng một tên cho các phép toán có ngữ nghĩa khác nhau trong một lớp duy nhất. Lý tưởng cho virtual là cho một lệnh gọi để có tác dụng tương tự độc lập với giao diện đã được sử dụng để tìm hàm.
+ 
+
+21.3.4 Sử dụng lặp lại một lớp cơ sở
+Khi mỗi lớp chỉ có một lớp cơ sở trực tiếp, cấu trúc phân cấp lớp sẽ là một cây và một lớp chỉ có thể xuất hiện một lần trong cây. Khi một lớp có thể có nhiều lớp cơ sở, một lớp có thể xuất hiện nhiều lần trong cấu trúc phân cấp kết quả. Một lớp hữu ích như vậy sẽ được sử dụng ở một số nơi trong hệ thống phân cấp lớp. Một hàm ảo của một lớp cơ sở được sao chép có thể được ghi đè bởi một hàm (đơn) trong một lớp dẫn xuất.
+
+21.3.5 Lớp cơ sở ảo
+Trong đồ thị kế thừa, mọi lớp cơ sở của một tên nhất định được chỉ định là ảo sẽ được biểu diễn bằng một đối tượng duy nhất của lớp đó. Mặt khác, mỗi lớp cơ sở không được chỉ định ảo sẽ có subobject riêng đại diện cho nó.
+Tại sao ai đó muốn sử dụng cơ sở ảo chứa dữ liệu? Tôi có thể nghĩ ra ba cách rõ ràng để hai lớp trong hệ thống phân cấp lớp chia sẻ dữ liệu:
+[1] Làm cho dữ liệu phi địa phương (bên ngoài lớp dưới dạng biến toàn cục hoặc không gian tên).
+[2] Đặt dữ liệu trong một lớp cơ sở.
+[3] Phân bổ một đối tượng ở đâu đó và cấp cho mỗi lớp một con trỏ.
+
+21.3.5.1 Xây dựng cơ sở ảo
+Sử dụng các đế ảo, bạn có thể tạo các mạng phức tạp. Đương nhiên, chúng tôi muốn giữ các vĩ độ đơn giản, nhưng dù phức tạp đến đâu, chúng tôi tạo ra chúng, ngôn ngữ đảm bảo rằng một phương thức khởi tạo của một cơ sở ảo được gọi chính xác một lần. Hơn nữa, hàm tạo của một cơ sở (dù là ảo hay không) được gọi trước các lớp dẫn xuất của nó. Bất cứ điều gì khác sẽ gây ra hỗn loạn (nghĩa là, một đối tượng có thể được sử dụng trước khi nó được khởi tạo). Để tránh sự hỗn loạn như vậy, phương thức khởi tạo của mọi cơ sở ảo được gọi (ngầm định hoặc rõ ràng) từ phương thức khởi tạo cho đối tượng hoàn chỉnh (phương thức khởi tạo cho lớp dẫn xuất nhất). Đặc biệt, điều này đảm bảo rằng một cơ sở ảo được xây dựng chính xác một lần ngay cả khi nó được đề cập ở nhiều nơi trong hệ thống phân cấp lớp. Ví dụ:
+struct V { 
+V(int i); // ... 
+}; 
+struct A { 
+A(); // ... // default constructor 
+}; 
+struct B : virtual V, virtual A {
+ B() :V{1} { /* ... */ }; // default constructor ; must initialize base V // ... 
+}; 
+class C : virtual V { 
+public: C(int i) : V{i} { /* ... */ }; // must initialize base V // ... 
+}; 
+class D : virtual public B, virtual public C { // implicitly gets the virtual base V from B and C // implicitly gets virtual base A from B 
+public: D() { /* ... */ } // error : no default constructor for C or V 
+D(int i) :C{i} { /* ... */ }; // error : no default constructor for V 
+D(int i, int j) :V{i}, C{j} { /* ... */ } // OK // ... 
+};
+
+21.3.5.2 Gọi một thành viên lớp học ảo Chỉ một lần
+Khi xác định các hàm cho một lớp có cơ sở ảo, người lập trình nói chung không thể biết liệu cơ sở đó có được chia sẻ với các lớp dẫn xuất khác hay không. Đây có thể là một vấn đề khi triển khai một dịch vụ yêu cầu một hàm lớp cơ sở được gọi chính xác một lần cho mỗi lần gọi hàm dẫn xuất. Khi cần, lập trình viên có thể mô phỏng lược đồ được sử dụng cho các hàm tạo bằng cách gọi một hàm lớp cơ sở ảo chỉ từ lớp dẫn xuất nhất.
+
+21.3.6 Cơ sở sao chép so với Cơ sở ảo
+Khi sử dụng một lớp trừu tượng (không có bất kỳ dữ liệu được chia sẻ nào) làm giao diện, chúng ta có một lựa chọn:
+- Sao chép lớp giao diện (một đối tượng cho mỗi đề cập trong hệ thống phân cấp lớp).
+- Tạo lớp giao diện ảo để chia sẻ một đối tượng đơn giản giữa tất cả các lớp trong hệ thống phân
+Mặt khác, có thể xây dựng các tình huống hợp lý trong đó việc chia sẻ ngụ ý trong thiết kế cơ sở ảo gây ra sự mơ hồ cho các phôi từ lớp cơ sở Tuy nhiên, những sự mơ hồ như vậy rất dễ bị xử lý.
+
+21.3.6.1 Ghi đè các hàm cơ sở ảo
+Một lớp dẫn xuất có thể ghi đè một hàm ảo của lớp cơ sở ảo trực tiếp hoặc gián tiếp của nó. Đặc biệt, hai lớp khác nhau có thể ghi đè các chức năng ảo khác nhau từ cơ sở ảo. Nếu hai lớp ghi đè một hàm của lớp cơ sở, nhưng không ghi đè lên lớp kia, thì cấu trúc phân cấp lớp là một lỗi. Hoặc, bằng cách sử dụng thuật ngữ triển khai, không có bảng hàm ảo nào có thể được xây dựng vì lệnh gọi hàm đó trên đối tượng hoàn chỉnh sẽ không rõ ràng.Một lớp cung cấp một số - nhưng không phải tất cả - việc triển khai cho một lớp cơ sở ảo thường được gọi là mixin.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHẦN III: ĐÁNH GIÁ CÁC THÀNH VIÊN TRONG NHÓM
+	
+Thành viên trong nhóm	Công việc được phân chia	Mức độ hoàn thành công việc
+Nguyễn Đăng An Ninh	Người viết code chính, kiểm tra code, hỗ trợ giải thích các thuật toán
+Dịch sách chương 20,21
+Cấu trúc dữ liệu
+Xây dựng chức năng	100%
+Kiều Thị Mộng Hiền	Người viết báo cáo 
+Người tổng hợp thông tin 
+Dịch sách chương 16,17 
+Class SinhVien, class SinhVienChinhQuy	100%
+Phan Thị Kim Nhung	Ý tưởng độc đáo sáng tạo , đưa ra lựa chọn mang tính quyết định
+Dịch sách chương 18,19
+Người thuyết trình kiêm làm powerpoint
+Class SinhVienVuaHocVuaLam, class SinhVienDuHoc	100%
+
+
+
+
+
+
+
+
+
