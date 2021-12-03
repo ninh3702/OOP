@@ -16,6 +16,8 @@ class SinhVien{
 		string tensv;
 		string khoalop;
 		string tag="null";
+		float dtb;
+		int ngay, thang, nam;
 	public :
 		SinhVien();
 		~SinhVien();
@@ -25,6 +27,9 @@ class SinhVien{
 		virtual string gettag();
 		virtual int getmssv(){
 			return mssv;
+		}
+		virtual string getten(){
+			return tensv;
 		}
 		virtual void Ghiflie(ofstream &fileout){
 			fileout<<tag<<"|"<<mssv<<"|"<<tensv<<"|"<<khoalop;
@@ -90,10 +95,21 @@ void SinhVien::NhapSV(){
 	cout<<"|";
 	getline(cin,khoalop);
 	fflush(stdin);
+	do{
+	cout<<"Nhap dtb: ";
+	cin>>dtb;
+	if(dtb<0){
+	cout<<"diem khong hop le";
+	}
+	cout<<"Nhap ngay - thang - nam sinh: "<<endl;
+	cin>>ngay>>thang>>nam;	
+	textcolor(7);
+	}while(dtb<0||dtb>10||ngay<1||ngay>31||thang<1||thang>12||nam<1990||nam>2003);
 	textcolor(7);
 }
 void SinhVien::XuatSV(){
-	ToMau(DOC,9,"|         ",7);Mau("|",12);Mau("|   MSSV   |    Ho ten    | Khoa | Tin chi | HP Ky | Phi phu | Nam DH | Noi DH | HP |",12);Mau("          |",12);Mau("        |",7);cout<<endl;
+	ToMau(DOC+11,9,"|   MSSV   |    Ho ten    | Khoa | Tin chi | HP Ky | Phi phu | Nam DH | Noi DH | HP ",12);cout<<endl;
+	textcolor(10);
 	pos_x=31;
 	gotoxy(pos_x,pos_y);
 	cout<<"|"<<mssv;
@@ -106,6 +122,9 @@ void SinhVien::XuatSV(){
 	gotoxy(pos_x,pos_y);
 	cout<<"|"<<khoalop;
 	fflush(stdin);
+	cout<<"\nDiem trung binh: ";
+	cout<<dtb;
+	cout<<endl<<"Ngay thang nam sinh: "<<ngay<<"/"<<thang<<"/"<<nam;
 	textcolor(7);
 }
 string SinhVien::gettag(){
@@ -129,6 +148,9 @@ class SinhVienVuaHocVuaLam:public SinhVien{
 		void Ghiflie(ofstream &fileout){
 			fileout<<tag<<"|"<<mssv<<"|"<<tensv<<"|"<<khoalop<<"|"<<hocphitheoky<<"|"<<phiphuthu;
 			fileout<<endl;
+		}
+		string getten(){
+			return tensv;
 		}
 };
 void SinhVienVuaHocVuaLam::NhapSV(){
@@ -189,6 +211,9 @@ class SinhVienChinhQuy:public SinhVien{
 		int getmssv(){
 			return mssv;
 		}
+		string getten(){
+			return tensv;
+		}
 		void Ghiflie(ofstream &fileout){
 			fileout<<tag<<"|"<<mssv<<"|"<<tensv<<"|"<<khoalop<<"|"<<sotinchi;
 			fileout<<endl;
@@ -239,6 +264,9 @@ class SinhVienDuHoc:public SinhVien{
 		int getmssv(){
 			return mssv;
 		}
+		string getten(){
+			return tensv;
+		}
 		void Ghiflie(ofstream &fileout){
 			fileout<<tag<<"|"<<mssv<<"|"<<tensv<<"|"<<khoalop<<"|"<<sonamduhoc<<"|"<<noiduhoc;
 			fileout<<endl;
@@ -277,7 +305,7 @@ void SinhVienDuHoc::XuatSV(){
 	gotoxy(pos_x,pos_y);
 	textcolor(10);
 	cout<<"|"<<noiduhoc;
-	pos_x+=10;
+	pos_x+=9;
 	gotoxy(pos_x,pos_y);
 	textcolor(10);
 	cout<<"|"<<HocPhi();
@@ -294,7 +322,6 @@ long SinhVienDuHoc::HocPhi(){
 	}else if(noiduhoc=="duc"){
 		x=30000000*sonamduhoc;
 	}else{
-		cout<<0<<endl;
 		return 0;
 	}
 	return x;
@@ -305,7 +332,6 @@ class QLSV{
 		vector<SinhVien *> qlsv;
 		SinhVien *sv;
 		ofstream fileout;
-		void noirong();
 	public:
 		QLSV(){
 				
@@ -323,6 +349,8 @@ class QLSV{
 		void Them();
 		void Xoa();
 		void Clear();
+		void TimKiemMSSV();
+		void TimKiemTheoTen();
 		void SapXepTheoKhoaTuBe();
 		void SapXepTheoKhoaTuLon();
 		void TrangChu();
@@ -376,20 +404,55 @@ void QLSV::Nhap(){
 		gotoxy(60,15);textcolor(Man);cin >>x;textcolor(7);
 		system("cls");
 		switch (x){
-			case 1: 
+				case 1: 
 				sv = new SinhVienChinhQuy;
 				sv->NhapSV();
-				qlsv.push_back(sv);
+				bool st;
+ 				st = false;
+				if(qlsv.size()==0){
+					qlsv.push_back(sv);
+				}else{
+					for(int i=qlsv.size()-1;i>=0;i--){
+						if(qlsv.at(i)->getmssv()==sv->getmssv()){
+							
+							cout<<"Cung mssv";
+							st = true;
+					}
+				}
+				if(st==false) qlsv.push_back(sv);
+			}
 				break;
 			case 2: 
+				st = false;
 				sv = new SinhVienDuHoc;
 				sv->NhapSV();
-				qlsv.push_back(sv);
+				if(qlsv.size()==0){
+					qlsv.push_back(sv);
+				}else{
+					for(int i=qlsv.size()-1;i>=0;i--){
+						if(qlsv.at(i)->getmssv()==sv->getmssv()){
+							cout<<"Cung mssv";
+							st = true;
+					}
+				}
+				if(st==false) qlsv.push_back(sv);
+			}
 				break;
 			case 3: 
+				st = false;
 				sv = new SinhVienVuaHocVuaLam;
 				sv->NhapSV();
-				qlsv.push_back(sv);
+				if(qlsv.size()==0){
+					qlsv.push_back(sv);
+				}else{
+					for(int i=qlsv.size()-1;i>=0;i--){
+						if(qlsv.at(i)->getmssv()==sv->getmssv()){
+							cout<<"Cung mssv";
+							st = true;
+					}
+				}
+				if(st==false) qlsv.push_back(sv);
+			}
 				break;
 			case 4:
 				menuxuat();
@@ -454,11 +517,11 @@ void QLSV::Xuat(){
 		ToMau(DOC,7,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,8,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,9,"|         ",Nen);Mau("|          ",Man);Mau("Chon loai sinh vien can xuat",mc);Mau("                                         |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,10,"|         ",Nen);Mau("|            ",Man);Mau("1) Sinh vien chinh quy",mc);Mau("                                             |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,11,"|         ",Nen);Mau("|            ",Man);Mau("2) Sinh vien du hoc",mc);Mau("                                                |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,12,"|         ",Nen);Mau("|            ",Man);Mau("3) Sinh vien vua hoc vua lam",mc);Mau("                                       |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,13,"|         ",Nen);Mau("|            ",Man);Mau("4) Quay lai menu",mc);Mau("                                                   |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,14,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,10,"|         ",Nen);Mau("|            ",Man);Mau("1) Tat ca sinh vien",mc);Mau("                                                |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,11,"|         ",Nen);Mau("|            ",Man);Mau("2) Sinh vien chinh quy",mc);Mau("                                             |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,12,"|         ",Nen);Mau("|            ",Man);Mau("3) Sinh vien du hoc",mc);Mau("                                                |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,13,"|         ",Nen);Mau("|            ",Man);Mau("4) Sinh vien vua hoc vua lam",mc);Mau("                                       |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,14,"|         ",Nen);Mau("|            ",Man);Mau("5) Quay lai menu",mc);Mau("                                                   |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,15,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,16,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,17,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
@@ -468,7 +531,7 @@ void QLSV::Xuat(){
 		ToMau(DOC,21,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,22,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,23,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,24,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;    
+		ToMau(DOC,24,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,25,"|         ",Nen);Mau("|_______________________________________________________________________________|",Man);Mau("        |",Nen);cout<<endl;  
 		ToMau(DOC,26,"|                                                                                                  |",Nen);cout<<endl;
 		ToMau(DOC,27,"|                                                                                                  |",Nen);cout<<endl;
@@ -484,16 +547,26 @@ void QLSV::Xuat(){
 		gotoxy(60,15);textcolor(Man);cin >>x;textcolor(7);
 		system("cls");
 		switch (x){
-			case 1: 
-				Xuatsvcq();
+			case 1:
+				system("cls");
+				cout<<"\n\n\n\n\n\n\n\n\n";
+				pos_y=10;
+				for(int i=0;i<qlsv.size();i++){
+					qlsv.at(i)->XuatSV();
+					ToMau(30,pos_y++,"_________________________________________________________________________",7);
+					pos_y++;
+				}	
 				break;
 			case 2: 
-				Xuatsvdh();
+				Xuatsvcq();
 				break;
 			case 3: 
+				Xuatsvdh();
+				break;
+			case 4: 
 				Xuatsvvhvl();
 				break;
-			case 4:
+			case 5:
 				menuxuat();
 				break;
 			default: 
@@ -546,6 +619,7 @@ void QLSV::Xuat(){
 void QLSV::Xuatsvcq(){
 	system("cls");
 		cout<<"\n\n\n\n\n\n\n\n\n";
+	pos_y=10;
 	for(int i=0;i<qlsv.size();i++){
 		if(qlsv.at(i)->gettag()=="svcq"){
 			qlsv.at(i)->XuatSV();
@@ -557,6 +631,7 @@ void QLSV::Xuatsvcq(){
 void QLSV::Xuatsvdh(){
 	system("cls");
 		cout<<"\n\n\n\n\n\n\n\n\n";
+	pos_y=10;
 	for(int i=0;i<qlsv.size();i++){
 		if(qlsv.at(i)->gettag()=="svdh"){
 			qlsv.at(i)->XuatSV();
@@ -579,9 +654,72 @@ void QLSV::Xuatsvvhvl(){
 }
 void QLSV::Them(){
 	system("cls");
-	int vt;
-	cout<<"\n\t\t\t\t\t\t\tNhap vi tri can them: ";
+	int vt,y;
+	do{
+	textcolor(7);
+		ToMau(DOC,1,"____________________________________________________________________________________________________",14);cout<<endl;
+		ToMau(DOC,2,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,3,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,4,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,5,"|         ",Nen);Mau("_________________________________________________________________________________",227);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,6,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl; 
+		ToMau(DOC,7,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,8,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,9,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,10,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,11,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,12,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,13,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,14,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,15,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,16,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,17,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,18,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,19,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,20,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,21,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,22,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,23,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,24,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;    
+		ToMau(DOC,25,"|         ",Nen);Mau("|_______________________________________________________________________________|",Man);Mau("        |",Nen);cout<<endl;  
+		ToMau(DOC,26,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,27,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,28,"|                                                                                                  |",Nen);cout<<endl;     
+		ToMau(DOC,29,"|__________________________________________________________________________________________________|",Nen);cout<<endl; 
+		ToMau(DOC+41,30,"|                 |",Nen);cout<<endl;    
+		ToMau(DOC+41,31,"|                 |",Nen);textcolor(7);cout<<endl;  
+		ToMau(DOC+31,32,"__________|                 |__________",Nen);cout<<endl;  
+		ToMau(DOC+31,33,"|                                     |",Nen);cout<<endl;  
+		ToMau(DOC+31,34,"|                                     |",Nen);cout<<endl;
+		ToMau(DOC+31,35,"|_____________________________________|",Nen);cout<<endl; 
+	ToMau(DOC+21,9,"Nhap vi tri can them: ",mc);
+	gotoxy(DOC+43,9);
+	textcolor(mc);
 	cin>>vt;
+	textcolor(7);
+	if(vt<0||vt>qlsv.size()) {
+		ToMau(DOC+21,9,"Vi tri ban nhap khong co trong danh sach",mc);
+		ToMau(DOC+21,10,"Ban co muon nhap tiep: ",mc);
+		ToMau(DOC+21,11,"1)Nhap tiep",mc);
+		ToMau(DOC+21,12,"2)Quay lai",mc);
+		ToMau(DOC+21,13,"Nhap lua chon cua ban: ",mc);
+		textcolor(mc);
+		gotoxy(DOC+44,13);
+		cin>>y;
+		textcolor(7);
+		switch(y){
+			case 1:
+				break;
+			case 2:
+				menuxuat();
+				break;
+			default:
+				ToMau(DOC,10,"Lua chon khong dung vui long nhap lai",mc);
+				break;
+		}
+	}
+	system("cls");
+	}while(vt<0||vt>qlsv.size());
 	int x;
 		system("cls");	
 		ToMau(DOC,1,"____________________________________________________________________________________________________",14);cout<<endl;
@@ -626,36 +764,230 @@ void QLSV::Them(){
 			case 1: 
 				sv = new SinhVienChinhQuy;
 				sv->NhapSV();
+				bool st;
+ 				st = false;
+				if(qlsv.size()==0){
+					qlsv.push_back(sv);
+				}else{
+					for(int i=qlsv.size()-1;i>=0;i--){
+						if(qlsv.at(i)->getmssv()==sv->getmssv()){
+							cout<<"Cung mssv";
+							st = true;
+					}
+				}
+				if(st==false) qlsv.insert(qlsv.begin()+vt,sv);
+			}
 				break;
 			case 2: 
+				st = false;
 				sv = new SinhVienDuHoc;
 				sv->NhapSV();
+				if(qlsv.size()==0){
+					qlsv.push_back(sv);
+				}else{
+					for(int i=qlsv.size()-1;i>=0;i--){
+						if(qlsv.at(i)->getmssv()==sv->getmssv()){
+							cout<<"Cung mssv";
+							st = true;
+					}
+				}
+				if(st==false) qlsv.insert(qlsv.begin()+vt,sv);
+			}
 				break;
 			case 3: 
-				sv = new SinhVienChinhQuy;
+				st = false;
+				sv = new SinhVienVuaHocVuaLam;
 				sv->NhapSV();
+				if(qlsv.size()==0){
+					qlsv.push_back(sv);
+				}else{
+					for(int i=qlsv.size()-1;i>=0;i--){
+						if(qlsv.at(i)->getmssv()==sv->getmssv()){
+							cout<<"Cung mssv";
+							st = true;
+					}
+				}
+				if(st==false) qlsv.insert(qlsv.begin()+vt,sv);
+			}
 				break;
 			case 4:
 				menuxuat();
 			default: cout<<"\nNhap sai du lieu ";				
 		}
-	qlsv.insert(qlsv.begin()+vt,sv);
 }
 void QLSV::Xoa(){
 	system("cls");
-	int vt;
-	cout<<"\n\t\t\t\t\t\t\tNhap vi tri can xoa: ";
+	int vt,y;
+	do{
+	textcolor(7);
+		ToMau(DOC,1,"____________________________________________________________________________________________________",14);cout<<endl;
+		ToMau(DOC,2,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,3,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,4,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,5,"|         ",Nen);Mau("_________________________________________________________________________________",227);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,6,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl; 
+		ToMau(DOC,7,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,8,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,9,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,10,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,11,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,12,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,13,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,14,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,15,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,16,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,17,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,18,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,19,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,20,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,21,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,22,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,23,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,24,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;    
+		ToMau(DOC,25,"|         ",Nen);Mau("|_______________________________________________________________________________|",Man);Mau("        |",Nen);cout<<endl;  
+		ToMau(DOC,26,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,27,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,28,"|                                                                                                  |",Nen);cout<<endl;     
+		ToMau(DOC,29,"|__________________________________________________________________________________________________|",Nen);cout<<endl; 
+		ToMau(DOC+41,30,"|                 |",Nen);cout<<endl;    
+		ToMau(DOC+41,31,"|                 |",Nen);textcolor(7);cout<<endl;  
+		ToMau(DOC+31,32,"__________|                 |__________",Nen);cout<<endl;  
+		ToMau(DOC+31,33,"|                                     |",Nen);cout<<endl;  
+		ToMau(DOC+31,34,"|                                     |",Nen);cout<<endl;
+		ToMau(DOC+31,35,"|_____________________________________|",Nen);cout<<endl; 
+	ToMau(DOC+21,9,"Nhap ma so sinh vien can xoa: ",mc);
+	gotoxy(DOC+51,9);
+	textcolor(mc);
 	cin>>vt;
-	qlsv.erase(qlsv.begin()+vt);
+	textcolor(7);
+	if(vt<0||vt>qlsv.size()) {
+		ToMau(DOC+21,9,"Vi tri ban nhap khong co trong danh sach",mc);
+		ToMau(DOC+21,10,"Ban co muon nhap tiep: ",mc);
+		ToMau(DOC+21,11,"1)Nhap tiep",mc);
+		ToMau(DOC+21,12,"2)Quay lai",mc);
+		ToMau(DOC+21,13,"Nhap lua chon cua ban: ",mc);
+		textcolor(mc);
+		gotoxy(DOC+44,13);
+		cin>>y;
+		textcolor(7);
+		switch(y){
+			case 1:
+				break;
+			case 2:
+				menuxuat();
+				break;
+			default:
+				ToMau(DOC,10,"Lua chon khong dung vui long nhap lai",mc);
+				break;
+		}
+	}
 	system("cls");
+	}while(vt<0||vt>qlsv.size());
+	bool st;
+	for(int i=0;i<qlsv.size();i++){
+		if(qlsv.at(i)->getmssv()==vt){
+			system("cls");
+			qlsv.erase(qlsv.begin()+i);
+			st = true;
+		}
+	}
+	if(st == false) cout<<"khong tim thay mssv";
+	gotoxy(31,21);
+	system("pause");
 }
 void QLSV::Sua(){
 	system("cls");
-	int vt;
-	cout<<"\n\t\t\t\t\t\t\tNhap vi tri can sua: ";
+	int vt,y;
+	bool st;
+	st = false;
+	do{
+	textcolor(7);
+		ToMau(DOC,1,"____________________________________________________________________________________________________",14);cout<<endl;
+		ToMau(DOC,2,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,3,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,4,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,5,"|         ",Nen);Mau("_________________________________________________________________________________",227);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,6,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl; 
+		ToMau(DOC,7,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,8,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,9,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,10,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,11,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,12,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,13,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,14,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,15,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,16,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,17,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,18,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,19,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,20,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,21,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,22,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,23,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,24,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;    
+		ToMau(DOC,25,"|         ",Nen);Mau("|_______________________________________________________________________________|",Man);Mau("        |",Nen);cout<<endl;  
+		ToMau(DOC,26,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,27,"|                                                                                                  |",Nen);cout<<endl;
+		ToMau(DOC,28,"|                                                                                                  |",Nen);cout<<endl;     
+		ToMau(DOC,29,"|__________________________________________________________________________________________________|",Nen);cout<<endl; 
+		ToMau(DOC+41,30,"|                 |",Nen);cout<<endl;    
+		ToMau(DOC+41,31,"|                 |",Nen);textcolor(7);cout<<endl;  
+		ToMau(DOC+31,32,"__________|                 |__________",Nen);cout<<endl;  
+		ToMau(DOC+31,33,"|                                     |",Nen);cout<<endl;  
+		ToMau(DOC+31,34,"|                                     |",Nen);cout<<endl;
+		ToMau(DOC+31,35,"|_____________________________________|",Nen);cout<<endl; 
+	ToMau(DOC+21,9,"Nhap ma so sinh vien can sua: ",mc);
+	gotoxy(DOC+51,9);
+	textcolor(mc);
 	cin>>vt;
+	textcolor(7);
+	if(vt<0||vt>qlsv.size()) {
+		ToMau(DOC+21,9,"Vi tri ban nhap khong co trong danh sach",mc);
+		ToMau(DOC+21,10,"Ban co muon nhap tiep: ",mc);
+		ToMau(DOC+21,11,"1)Nhap tiep",mc);
+		ToMau(DOC+21,12,"2)Quay lai",mc);
+		ToMau(DOC+21,13,"Nhap lua chon cua ban: ",mc);
+		textcolor(mc);
+		gotoxy(DOC+44,13);
+		cin>>y;
+		textcolor(7);
+		switch(y){
+			case 1:
+				break;
+			case 2:
+				menuxuat();
+				break;
+			default:
+				ToMau(DOC,10,"Lua chon khong dung vui long nhap lai",mc);
+				break;
+		}
+	}
 	system("cls");
-	qlsv.at(vt)->NhapSV();
+	}while(vt<0||vt>qlsv.size());
+	for(int i=0;i<qlsv.size();i++){
+		if(qlsv.at(i)->getmssv()==vt){
+			system("cls");
+			if(qlsv.at(i)->gettag()=="svcq"){
+				sv = new SinhVienChinhQuy;
+				sv->NhapSV();
+				qlsv.at(i) = sv;
+			}else if(qlsv.at(i)->gettag()=="svdh"){
+				sv = new SinhVienDuHoc;
+				sv->NhapSV();
+				qlsv.at(i) = sv;
+			}else if(qlsv.at(i)->gettag()=="svvhvl"){
+				sv = new SinhVienVuaHocVuaLam;
+				sv->NhapSV();
+				qlsv.at(i) = sv;
+			}else exit(0);
+			st = true;
+		}
+	}
+	if(st == false) cout<<"khong tim thay mssv";
+	gotoxy(31,21);
+	system("pause");
+	Xuat();
 }
 void QLSV::Clear(){
 	qlsv.clear();
@@ -670,7 +1002,6 @@ void QLSV::SapXepTheoKhoaTuBe(){
 			}	
 		}
 	}
-	QLSV::Xuat();
 }
 void QLSV::SapXepTheoKhoaTuLon(){
 	for(int i=0;i<qlsv.size();i++){
@@ -684,6 +1015,49 @@ void QLSV::SapXepTheoKhoaTuLon(){
 	}
 	QLSV::Xuat();
 }
+
+void QLSV::TimKiemMSSV(){
+	system("cls");
+	int vt;
+	cout<<"Nhap mssv: ";
+	cin>>vt;
+	bool st;
+	pos_y=10;
+	for(int i=0;i<qlsv.size();i++){
+		if(qlsv.at(i)->getmssv()==vt){
+			system("cls");
+			qlsv.at(i)->XuatSV();
+			st = true;
+			break;
+		}
+	}
+	if(st == false) cout<<"khong tim thay mssv";
+	gotoxy(31,21);
+	system("pause");
+	system("cls");
+}
+void QLSV::TimKiemTheoTen(){
+	system("cls");
+	string vt;
+	cout<<"Nhap ten: ";
+	cin>>vt;
+	bool st;
+	pos_y=10;
+	for(int i=0;i<qlsv.size();i++){
+		if(qlsv.at(i)->getten()==vt){
+			system("cls");
+			qlsv.at(i)->XuatSV();
+			cout<<endl;
+			system("pause");
+			st = true;
+		}
+	}
+	if(st == false) cout<<"khong tim thay ten";
+	gotoxy(31,21);
+	system("pause");
+	system("cls");
+}
+
 void QLSV::menuxuat(){
 	int x,y;
 	system("cls");	
@@ -696,14 +1070,14 @@ void QLSV::menuxuat(){
 		ToMau(DOC,6,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl; 
 		ToMau(DOC,7,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,8,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,9,"|         ",Nen);Mau("|          ",Man);Mau("1.Nhap danh sach sinh vien:",mc);Mau("                                          |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,9,"|         ",Nen);Mau("|          ",Man);Mau("1.Nhap danh sach sinh vien ",mc);Mau("                                          |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,10,"|         ",Nen);Mau("|          ",Man);Mau("2.Xuat DS",mc);Mau("                                                            |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,11,"|         ",Nen);Mau("|          ",Man);Mau("3.Them sinh vien tai mot vi tri",mc);Mau("                                      |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,12,"|         ",Nen);Mau("|          ",Man);Mau("4.Xoa sinh vien tai mot vi tri",mc);Mau("                                       |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,13,"|         ",Nen);Mau("|          ",Man);Mau("5.Sua du lieu cua mot sinh vien",mc);Mau("                                      |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,14,"|         ",Nen);Mau("|          ",Man);Mau("6.Ghi file",mc);Mau("                                                           |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,15,"|         ",Nen);Mau("|          ",Man);Mau("7.Quay ve trang chu",mc);Mau("                                                  |",Man);Mau("        |",Nen);cout<<endl;
-		ToMau(DOC,16,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,12,"|         ",Nen);Mau("|          ",Man);Mau("4.Xoa sinh vien theo MSSV",mc);Mau("                                            |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,13,"|         ",Nen);Mau("|          ",Man);Mau("5.Sua du lieu theo MSSV",mc);Mau("                                              |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,14,"|         ",Nen);Mau("|          ",Man);Mau("6.Tim kiem theo MSSV",mc);Mau("                                                 |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,15,"|         ",Nen);Mau("|          ",Man);Mau("7.Ghi file",mc);Mau("                                                           |",Man);Mau("        |",Nen);cout<<endl;
+		ToMau(DOC,16,"|         ",Nen);Mau("|          ",Man);Mau("8.Quay ve trang chu",mc);Mau("                                                  |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,17,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,18,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
 		ToMau(DOC,19,"|         ",Nen);Mau("|                                                                               |",Man);Mau("        |",Nen);cout<<endl;
@@ -730,6 +1104,8 @@ void QLSV::menuxuat(){
 				Nhap();
 				break;
 			case 2: 
+			if(qlsv.size()==0);
+				cout<<"";
 				Xuat();
 				break;
 			case 3:
@@ -742,12 +1118,25 @@ void QLSV::menuxuat(){
 				Sua();
 				break;
 			case 6:
+				TimKiemMSSV();
+				break;		
+			case 7:
 				fileout.open("SINHVIEN.TXT", ios_base::app);
 				ghi(fileout);
-				break;
-			case 7:
 				TrangChu();
-				break;		
+				break;
+			case 9:
+				TrangChu();
+				break;
+			case 10:
+				TimKiemTheoTen();
+				break;
+			case 11:
+				SapXepTheoKhoaTuBe();
+				break;
+			case 12:
+				SapXepTheoKhoaTuLon();
+				break;
 			default: 	
 				ToMau(31,22,"Nhap sai du lieu",mc);				
 		}
@@ -759,6 +1148,7 @@ void QLSV::menuxuat(){
 		system("cls");
 	}
 }	
+
 
 void QLSV::TrangChu(){
 	int x,y;
@@ -852,7 +1242,7 @@ void QLSV::TrangChu(){
 			else TrangChu();
 				break;
 			case 3: 
-				a=false;
+				exit(0);
 				break;
 			default:	
 				ToMau(31,22,"Nhap sai du lieu",mc);	
@@ -866,7 +1256,6 @@ int main()
 	resizeConsole(1000,670);
 	QLSV QL;
 	QL.TrangChu();
-	fileout.open("SINHVIEN.TXT", ios_base::app);
-	QL.ghi(fileout);
     return 0;
 }
+
